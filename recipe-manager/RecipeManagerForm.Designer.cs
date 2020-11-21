@@ -31,6 +31,7 @@ namespace recipe_manager
         {
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.addRecipeButton = new System.Windows.Forms.Button();
+            this.categoriesButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
             this.titlePanel = new System.Windows.Forms.Panel();
             this.topBarPanel = new System.Windows.Forms.Panel();
@@ -46,6 +47,7 @@ namespace recipe_manager
             // 
             this.sideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.sideBarPanel.Controls.Add(this.addRecipeButton);
+            this.sideBarPanel.Controls.Add(this.categoriesButton);
             this.sideBarPanel.Controls.Add(this.homeButton);
             this.sideBarPanel.Controls.Add(this.titlePanel);
             this.sideBarPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -60,12 +62,26 @@ namespace recipe_manager
             this.addRecipeButton.FlatAppearance.BorderSize = 0;
             this.addRecipeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addRecipeButton.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addRecipeButton.Location = new System.Drawing.Point(0, 245);
+            this.addRecipeButton.Location = new System.Drawing.Point(0, 322);
             this.addRecipeButton.Name = "addRecipeButton";
             this.addRecipeButton.Size = new System.Drawing.Size(225, 77);
             this.addRecipeButton.TabIndex = 2;
             this.addRecipeButton.Text = "Add Recipe";
             this.addRecipeButton.UseVisualStyleBackColor = true;
+            this.addRecipeButton.Click += new System.EventHandler(this.addRecipeButton_Click);
+            // 
+            // categoriesButton
+            // 
+            this.categoriesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.categoriesButton.FlatAppearance.BorderSize = 0;
+            this.categoriesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.categoriesButton.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriesButton.Location = new System.Drawing.Point(0, 245);
+            this.categoriesButton.Name = "categoriesButton";
+            this.categoriesButton.Size = new System.Drawing.Size(225, 77);
+            this.categoriesButton.TabIndex = 3;
+            this.categoriesButton.Text = "Categories";
+            this.categoriesButton.UseVisualStyleBackColor = true;
             // 
             // homeButton
             // 
@@ -79,6 +95,7 @@ namespace recipe_manager
             this.homeButton.TabIndex = 0;
             this.homeButton.Text = "Home";
             this.homeButton.UseVisualStyleBackColor = true;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // titlePanel
             // 
@@ -155,6 +172,7 @@ namespace recipe_manager
         private System.Windows.Forms.Panel homePanel;
         private System.Windows.Forms.GroupBox allRecipesGroupBox;
         private System.Windows.Forms.Button allRecipesButton;
+        private System.Windows.Forms.Button categoriesButton;
     }
 }
 
