@@ -37,6 +37,7 @@
       <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,12 +56,19 @@
     <Compile Include="Controls\AddRecipeUC.Designer.cs">
       <DependentUpon>AddRecipeUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RecipesUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RecipesUC.Designer.cs">
+      <DependentUpon>RecipesUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TopBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\TopBar.Designer.cs">
       <DependentUpon>TopBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess.cs" />
     <Compile Include="Models\IngredientsModel.cs" />
     <Compile Include="Models\InstructionsModel.cs" />
     <Compile Include="Models\RecipesModel.cs" />
@@ -74,6 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\AddRecipeUC.resx">
       <DependentUpon>AddRecipeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RecipesUC.resx">
+      <DependentUpon>RecipesUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TopBar.resx">
       <DependentUpon>TopBar.cs</DependentUpon>

@@ -14,6 +14,7 @@ namespace recipe_manager
     public partial class RecipeManagerForm : Form
     {
         private Panel AddRecipePanel = new Panel();
+        private Panel AllRecipesPanel = new Panel();
 
         public RecipeManagerForm()
         {
@@ -21,6 +22,7 @@ namespace recipe_manager
 
             topBarPanel.Controls.Add(new TopBar());
             this.Controls.Add(AddRecipePanel);
+            this.Controls.Add(AllRecipesPanel);
         }
 
         private void addRecipeButton_Click(object sender, EventArgs e)
@@ -37,6 +39,16 @@ namespace recipe_manager
         {
             AddRecipePanel.Hide();
             homePanel.Show();
+        }
+
+        private void allRecipesButton_Click(object sender, EventArgs e)
+        {
+            AllRecipesPanel.Size = homePanel.Size;
+            AllRecipesPanel.Location = homePanel.Location;
+            AllRecipesPanel.Controls.Add(new RecipesUC());
+
+            homePanel.Hide();
+            AllRecipesPanel.Show();
         }
     }
 }

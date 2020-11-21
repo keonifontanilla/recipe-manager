@@ -141,6 +141,7 @@ namespace recipe_manager
             this.allRecipesButton.TabIndex = 0;
             this.allRecipesButton.Text = "All Recipes";
             this.allRecipesButton.UseVisualStyleBackColor = true;
+            this.allRecipesButton.Click += new System.EventHandler(this.allRecipesButton_Click);
             // 
             // RecipeManagerForm
             // 
