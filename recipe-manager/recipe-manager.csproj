@@ -61,6 +61,9 @@
     <Compile Include="Controls\TopBar.Designer.cs">
       <DependentUpon>TopBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\IngredientsModel.cs" />
+    <Compile Include="Models\InstructionsModel.cs" />
+    <Compile Include="Models\RecipesModel.cs" />
     <Compile Include="RecipeManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,8 +104,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
