@@ -119,6 +119,41 @@ namespace recipe_manager.Controls
             var recipesId = CreateRecipeInfo(recipesModel);
 
             db.InsertFullRecipe(ingredients, recipesId);
+            ResetForm(recipeGroupBox);
+            ResetForm(ingredientsGroupBox);
+            ResetForm(instructionsGroupBox);
+        }
+
+        private void ResetForm(GroupBox groupBox)
+        {
+            foreach (var control in groupBox.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textBox = (TextBox)control;
+                    textBox.Clear();
+                }
+
+                if (control is ComboBox)
+                {
+                    ComboBox comboBox = (ComboBox)control;
+                    comboBox.SelectedIndex = 0;
+                }
+
+                if (control is DataGridView)
+                {
+                    DataGridView dataGridView = (DataGridView)control;
+                    dataGridView.Rows.Clear();
+                }
+
+                if (control is ListBox)
+                {
+                    ListBox listBox = (ListBox)control;
+                    listBox.Items.Clear();
+                }
+            }
+            ingredients = new List<IngredientsModel>();
+            instructions = new List<InstructionsModel>();
         }
     }
 }
