@@ -26,19 +26,10 @@ namespace recipe_manager.Models
         /// <summary>
         /// This is the ingredient's quantity.
         /// </summary>
-        public float IngredientQuantity { get; set; }
+        public string IngredientQuantity { get; set; }
         /// <summary>
         /// This is the ingredient's unti.
         /// </summary>
         public string IngredientUnit { get; set; }
-        /// <summary>
-        /// Format ingredient string to display
-        /// </summary>
-        public string GetIngredientInfo 
-        { 
-            get {
-                return $"{Ingredient} {IngredientQuantity} {IngredientUnit}";
-            }
-        }
     }
 }

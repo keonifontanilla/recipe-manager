@@ -42,7 +42,7 @@ namespace recipe_manager.Controls
         private void FillIngredientsModel(IngredientsModel im)
         {
             im.Ingredient = ingredientsTextBox.Text;
-            im.IngredientQuantity = float.Parse(quantityTextBox.Text);
+            im.IngredientQuantity = quantityTextBox.Text;
             im.IngredientUnit = unitTextBox.Text;
         }
 
