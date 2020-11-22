@@ -21,5 +21,13 @@ namespace recipe_manager
                 return connection.Query<RecipesModel>("dbo.spRecipes_SelectAllRecipes").ToList();
             }
         }
+
+        public void InsertRecipe()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
+            {
+                
+            }
+        }
     }
 }

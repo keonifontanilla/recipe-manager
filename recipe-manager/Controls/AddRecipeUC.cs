@@ -13,14 +13,23 @@ namespace recipe_manager.Controls
 {
     public partial class AddRecipeUC : UserControl
     {
-        DataAccess db;
+        List<IngredientsModel> ingredients = new List<IngredientsModel>(); 
+        List<InstructionsModel> instructions = new List<InstructionsModel>(); 
+
+        DataAccess db = null;
 
         public AddRecipeUC(DataAccess db)
         {
             this.db = db;
 
             InitializeComponent();
+            InitializeRecipesComboBox();
             FormatIngredientDataGridView();
+        }
+
+        private void InitializeRecipesComboBox()
+        {
+            typeComboBox.DataSource = new List<string> { "Any", "Breakfast", "Lunch", "Dinner", "Dessert", "Drink" };
         }
 
         private void FillRecipesModel(RecipesModel rm)
@@ -54,6 +63,7 @@ namespace recipe_manager.Controls
             var ingredientsModel = new IngredientsModel();
 
             FillIngredientsModel(ingredientsModel);
+            ingredients.Add(ingredientsModel);
 
             ingredientsDataGridView.Rows.Add(ingredientsModel.Ingredient, ingredientsModel.IngredientQuantity, ingredientsModel.IngredientUnit);
 
@@ -64,7 +74,13 @@ namespace recipe_manager.Controls
 
         private void removeIngredientButton_Click(object sender, EventArgs e)
         {
+            if (ingredientsDataGridView.CurrentRow != null)
+            {
+                var index = ingredientsDataGridView.CurrentRow.Index;
 
+                ingredientsDataGridView.Rows.RemoveAt(index);
+                ingredients.RemoveAt(index);
+            }
         }
 
         private void addInstructionButton_Click(object sender, EventArgs e)
@@ -72,12 +88,25 @@ namespace recipe_manager.Controls
             var instructionsModel = new InstructionsModel();
 
             FillInstructionsModel(instructionsModel);
+            instructions.Add(instructionsModel);
+
             instructionsListBox.Items.Add(instructionsModel.Instruction);
 
             instructionsTextBox.Clear();
         }
 
         private void removeInstuctionButton_Click(object sender, EventArgs e)
+        {
+            var index = instructionsListBox.SelectedIndex;
+
+            if (index != -1)
+            {
+                instructionsListBox.Items.RemoveAt(index);
+                instructions.RemoveAt(index);
+            }
+        }
+
+        private void addRecipeButton_Click(object sender, EventArgs e)
         {
 
         }
