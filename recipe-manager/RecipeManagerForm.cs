@@ -16,6 +16,8 @@ namespace recipe_manager
         private Panel AddRecipePanel = new Panel();
         private Panel AllRecipesPanel = new Panel();
 
+        DataAccess db = new DataAccess();
+
         public RecipeManagerForm()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace recipe_manager
         {
             AddRecipePanel.Size = homePanel.Size;
             AddRecipePanel.Location = homePanel.Location;
-            AddRecipePanel.Controls.Add(new AddRecipeUC());
+            AddRecipePanel.Controls.Add(new AddRecipeUC(db));
 
             homePanel.Hide();
             AddRecipePanel.Show();
@@ -45,7 +47,7 @@ namespace recipe_manager
         {
             AllRecipesPanel.Size = homePanel.Size;
             AllRecipesPanel.Location = homePanel.Location;
-            AllRecipesPanel.Controls.Add(new RecipesUC());
+            AllRecipesPanel.Controls.Add(new RecipesUC(db));
 
             homePanel.Hide();
             AllRecipesPanel.Show();

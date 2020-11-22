@@ -37,9 +37,11 @@ namespace recipe_manager.Controls
             // 
             // recipesDataGridView
             // 
+            this.recipesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.recipesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.recipesDataGridView.Location = new System.Drawing.Point(28, 68);
             this.recipesDataGridView.Name = "recipesDataGridView";
+            this.recipesDataGridView.ReadOnly = true;
             this.recipesDataGridView.Size = new System.Drawing.Size(825, 524);
             this.recipesDataGridView.TabIndex = 0;
             // 

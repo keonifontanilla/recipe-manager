@@ -40,20 +40,23 @@ namespace recipe_manager.Controls
             this.instructionsListBox = new System.Windows.Forms.ListBox();
             this.addInstructionButton = new System.Windows.Forms.Button();
             this.ingredientsLabel = new System.Windows.Forms.Label();
-            this.ingredientsListBox = new System.Windows.Forms.ListBox();
             this.ingredientsTextBox = new System.Windows.Forms.TextBox();
             this.quantityLabel = new System.Windows.Forms.Label();
             this.unitLabel = new System.Windows.Forms.Label();
             this.addIngredientButton = new System.Windows.Forms.Button();
             this.quantityTextBox = new System.Windows.Forms.TextBox();
-            this.untiTextBox = new System.Windows.Forms.TextBox();
+            this.unitTextBox = new System.Windows.Forms.TextBox();
             this.ingredientsGroupBox = new System.Windows.Forms.GroupBox();
             this.recipeGroupBox = new System.Windows.Forms.GroupBox();
             this.instructionsGroupBox = new System.Windows.Forms.GroupBox();
             this.addRecipeButton = new System.Windows.Forms.Button();
+            this.removeInstuctionButton = new System.Windows.Forms.Button();
+            this.removeIngredientButton = new System.Windows.Forms.Button();
+            this.ingredientsDataGridView = new System.Windows.Forms.DataGridView();
             this.ingredientsGroupBox.SuspendLayout();
             this.recipeGroupBox.SuspendLayout();
             this.instructionsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // recipeLabel
@@ -143,6 +146,7 @@ namespace recipe_manager.Controls
             this.addInstructionButton.TabIndex = 9;
             this.addInstructionButton.Text = "Add Instruction";
             this.addInstructionButton.UseVisualStyleBackColor = true;
+            this.addInstructionButton.Click += new System.EventHandler(this.addInstructionButton_Click);
             // 
             // ingredientsLabel
             // 
@@ -153,14 +157,6 @@ namespace recipe_manager.Controls
             this.ingredientsLabel.Size = new System.Drawing.Size(90, 19);
             this.ingredientsLabel.TabIndex = 10;
             this.ingredientsLabel.Text = "Ingredients:";
-            // 
-            // ingredientsListBox
-            // 
-            this.ingredientsListBox.FormattingEnabled = true;
-            this.ingredientsListBox.Location = new System.Drawing.Point(142, 109);
-            this.ingredientsListBox.Name = "ingredientsListBox";
-            this.ingredientsListBox.Size = new System.Drawing.Size(237, 160);
-            this.ingredientsListBox.TabIndex = 11;
             // 
             // ingredientsTextBox
             // 
@@ -198,6 +194,7 @@ namespace recipe_manager.Controls
             this.addIngredientButton.TabIndex = 15;
             this.addIngredientButton.Text = "Add Ingredient";
             this.addIngredientButton.UseVisualStyleBackColor = true;
+            this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
             // 
             // quantityTextBox
             // 
@@ -206,18 +203,19 @@ namespace recipe_manager.Controls
             this.quantityTextBox.Size = new System.Drawing.Size(70, 20);
             this.quantityTextBox.TabIndex = 16;
             // 
-            // untiTextBox
+            // unitTextBox
             // 
-            this.untiTextBox.Location = new System.Drawing.Point(309, 72);
-            this.untiTextBox.Name = "untiTextBox";
-            this.untiTextBox.Size = new System.Drawing.Size(70, 20);
-            this.untiTextBox.TabIndex = 17;
+            this.unitTextBox.Location = new System.Drawing.Point(309, 72);
+            this.unitTextBox.Name = "unitTextBox";
+            this.unitTextBox.Size = new System.Drawing.Size(70, 20);
+            this.unitTextBox.TabIndex = 17;
             // 
             // ingredientsGroupBox
             // 
+            this.ingredientsGroupBox.Controls.Add(this.ingredientsDataGridView);
+            this.ingredientsGroupBox.Controls.Add(this.removeIngredientButton);
             this.ingredientsGroupBox.Controls.Add(this.ingredientsLabel);
-            this.ingredientsGroupBox.Controls.Add(this.untiTextBox);
-            this.ingredientsGroupBox.Controls.Add(this.ingredientsListBox);
+            this.ingredientsGroupBox.Controls.Add(this.unitTextBox);
             this.ingredientsGroupBox.Controls.Add(this.quantityTextBox);
             this.ingredientsGroupBox.Controls.Add(this.ingredientsTextBox);
             this.ingredientsGroupBox.Controls.Add(this.addIngredientButton);
@@ -245,6 +243,7 @@ namespace recipe_manager.Controls
             // 
             // instructionsGroupBox
             // 
+            this.instructionsGroupBox.Controls.Add(this.removeInstuctionButton);
             this.instructionsGroupBox.Controls.Add(this.instructionsLabel);
             this.instructionsGroupBox.Controls.Add(this.instructionsTextBox);
             this.instructionsGroupBox.Controls.Add(this.addInstructionButton);
@@ -265,6 +264,38 @@ namespace recipe_manager.Controls
             this.addRecipeButton.Text = "Add Recipe";
             this.addRecipeButton.UseVisualStyleBackColor = true;
             // 
+            // removeInstuctionButton
+            // 
+            this.removeInstuctionButton.AutoSize = true;
+            this.removeInstuctionButton.Location = new System.Drawing.Point(270, 54);
+            this.removeInstuctionButton.Name = "removeInstuctionButton";
+            this.removeInstuctionButton.Size = new System.Drawing.Size(109, 23);
+            this.removeInstuctionButton.TabIndex = 10;
+            this.removeInstuctionButton.Text = "Remove Instruction";
+            this.removeInstuctionButton.UseVisualStyleBackColor = true;
+            this.removeInstuctionButton.Click += new System.EventHandler(this.removeInstuctionButton_Click);
+            // 
+            // removeIngredientButton
+            // 
+            this.removeIngredientButton.AutoSize = true;
+            this.removeIngredientButton.Location = new System.Drawing.Point(21, 147);
+            this.removeIngredientButton.Name = "removeIngredientButton";
+            this.removeIngredientButton.Size = new System.Drawing.Size(107, 23);
+            this.removeIngredientButton.TabIndex = 18;
+            this.removeIngredientButton.Text = "Remove Ingredient";
+            this.removeIngredientButton.UseVisualStyleBackColor = true;
+            this.removeIngredientButton.Click += new System.EventHandler(this.removeIngredientButton_Click);
+            // 
+            // ingredientsDataGridView
+            // 
+            this.ingredientsDataGridView.AllowUserToAddRows = false;
+            this.ingredientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ingredientsDataGridView.Location = new System.Drawing.Point(142, 109);
+            this.ingredientsDataGridView.Name = "ingredientsDataGridView";
+            this.ingredientsDataGridView.ReadOnly = true;
+            this.ingredientsDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.ingredientsDataGridView.TabIndex = 19;
+            // 
             // AddRecipeUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +312,7 @@ namespace recipe_manager.Controls
             this.recipeGroupBox.PerformLayout();
             this.instructionsGroupBox.ResumeLayout(false);
             this.instructionsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,16 +331,18 @@ namespace recipe_manager.Controls
         private System.Windows.Forms.ListBox instructionsListBox;
         private System.Windows.Forms.Button addInstructionButton;
         private System.Windows.Forms.Label ingredientsLabel;
-        private System.Windows.Forms.ListBox ingredientsListBox;
         private System.Windows.Forms.TextBox ingredientsTextBox;
         private System.Windows.Forms.Label quantityLabel;
         private System.Windows.Forms.Label unitLabel;
         private System.Windows.Forms.Button addIngredientButton;
         private System.Windows.Forms.TextBox quantityTextBox;
-        private System.Windows.Forms.TextBox untiTextBox;
+        private System.Windows.Forms.TextBox unitTextBox;
         private System.Windows.Forms.GroupBox ingredientsGroupBox;
         private System.Windows.Forms.GroupBox recipeGroupBox;
         private System.Windows.Forms.GroupBox instructionsGroupBox;
         private System.Windows.Forms.Button addRecipeButton;
+        private System.Windows.Forms.Button removeIngredientButton;
+        private System.Windows.Forms.Button removeInstuctionButton;
+        private System.Windows.Forms.DataGridView ingredientsDataGridView;
     }
 }

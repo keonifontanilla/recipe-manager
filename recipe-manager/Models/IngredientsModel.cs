@@ -27,5 +27,14 @@ namespace recipe_manager.Models
         /// This is the ingredient's unti.
         /// </summary>
         public string IngredientUnit { get; set; }
+        /// <summary>
+        /// Format ingredient string to display
+        /// </summary>
+        public string GetIngredientInfo 
+        { 
+            get {
+                return $"{Ingredient} {IngredientQuantity} {IngredientUnit}";
+            }
+        }
     }
 }

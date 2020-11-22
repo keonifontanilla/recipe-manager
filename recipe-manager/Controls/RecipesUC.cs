@@ -12,9 +12,15 @@ namespace recipe_manager.Controls
 {
     public partial class RecipesUC : UserControl
     {
-        public RecipesUC()
+        DataAccess db;
+
+        public RecipesUC(DataAccess db)
         {
+            this.db = db;
+
             InitializeComponent();
+
+            recipesDataGridView.DataSource = db.ListRecipes();
         }
     }
 }
