@@ -106,9 +106,19 @@ namespace recipe_manager.Controls
             }
         }
 
+        private int CreateRecipeInfo(RecipesModel rm)
+        {
+            FillRecipesModel(rm);
+
+            return db.CreateRecipeInfo(rm, instructions);
+        }
+
         private void addRecipeButton_Click(object sender, EventArgs e)
         {
+            var recipesModel = new RecipesModel();
+            var recipesId = CreateRecipeInfo(recipesModel);
 
+            db.InsertFullRecipe(ingredients, recipesId);
         }
     }
 }

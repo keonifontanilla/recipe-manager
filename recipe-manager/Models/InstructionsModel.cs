@@ -16,8 +16,13 @@ namespace recipe_manager.Models
         /// </summary>
         public int InstructionId { get; set; }
         /// <summary>
+        /// The recipe's id.
+        /// </summary>
+        public int RecipeId { get; set; }
+        /// <summary>
         /// This is the instruction.
         /// </summary>
         public string Instruction { get; set; }
+
     }
 }

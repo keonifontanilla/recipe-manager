@@ -22,11 +22,46 @@ namespace recipe_manager
             }
         }
 
-        public void InsertRecipe()
+        public int CreateRecipeInfo(RecipesModel rm, List<InstructionsModel> instructions)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
             {
-                
+                var dParam = new DynamicParameters();
+
+                dParam.Add("@RecipeName", rm.RecipeName);
+                dParam.Add("@RecipeDescription", rm.RecipeDescription);
+                dParam.Add("@RecipeType", rm.RecipeType);
+                dParam.Add("@RecipeId", 0, DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spRecipes_Insert", dParam, commandType: CommandType.StoredProcedure);
+
+                rm.RecipeId = dParam.Get<int>("@RecipeId");
+
+                instructions.ForEach(x => x.RecipeId = rm.RecipeId);
+                connection.Execute("dbo.spInstructions_Insert @RecipeId, @Instruction", instructions);
+
+                return rm.RecipeId;
+            }
+        }
+
+        public void InsertFullRecipe(List<IngredientsModel> ingredients, int recipeID)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
+            {
+                var dParam = new DynamicParameters();
+
+                ingredients.ForEach(x =>
+                {
+                    x.RecipeId = recipeID;
+                    dParam.Add("@Ingredient", x.Ingredient);
+                    dParam.Add("@IngredientId", 0, DbType.Int32, direction: ParameterDirection.Output);
+
+                    connection.Execute("dbo.spIngredients_Insert", dParam, commandType: CommandType.StoredProcedure);
+
+                    x.IngredientId = dParam.Get<int>("@IngredientId");
+                });
+
+                connection.Execute("dbo.spRecipeIngredients_Insert @RecipeId, @IngredientId, @IngredientQuantity, @IngredientUnit", ingredients);
             }
         }
     }
