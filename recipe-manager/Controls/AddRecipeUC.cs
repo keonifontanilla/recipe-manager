@@ -60,16 +60,19 @@ namespace recipe_manager.Controls
 
         private void addIngredientButton_Click(object sender, EventArgs e)
         {
-            var ingredientsModel = new IngredientsModel();
+            if (ingredientsTextBox.Text != "" && quantityTextBox.Text != "" && unitTextBox.Text != "")
+            {
+                var ingredientsModel = new IngredientsModel();
 
-            FillIngredientsModel(ingredientsModel);
-            ingredients.Add(ingredientsModel);
+                FillIngredientsModel(ingredientsModel);
+                ingredients.Add(ingredientsModel);
 
-            ingredientsDataGridView.Rows.Add(ingredientsModel.Ingredient, ingredientsModel.IngredientQuantity, ingredientsModel.IngredientUnit);
+                ingredientsDataGridView.Rows.Add(ingredientsModel.Ingredient, ingredientsModel.IngredientQuantity, ingredientsModel.IngredientUnit);
 
-            ingredientsTextBox.Clear();
-            quantityTextBox.Clear();
-            unitTextBox.Clear();
+                ingredientsTextBox.Clear();
+                quantityTextBox.Clear();
+                unitTextBox.Clear();
+            }
         }
 
         private void removeIngredientButton_Click(object sender, EventArgs e)
@@ -85,14 +88,17 @@ namespace recipe_manager.Controls
 
         private void addInstructionButton_Click(object sender, EventArgs e)
         {
-            var instructionsModel = new InstructionsModel();
+            if (instructionsTextBox.Text != "")
+            {
+                var instructionsModel = new InstructionsModel();
 
-            FillInstructionsModel(instructionsModel);
-            instructions.Add(instructionsModel);
+                FillInstructionsModel(instructionsModel);
+                instructions.Add(instructionsModel);
 
-            instructionsListBox.Items.Add(instructionsModel.Instruction);
+                instructionsListBox.Items.Add(instructionsModel.Instruction);
 
-            instructionsTextBox.Clear();
+                instructionsTextBox.Clear();
+            }
         }
 
         private void removeInstuctionButton_Click(object sender, EventArgs e)
@@ -115,16 +121,23 @@ namespace recipe_manager.Controls
 
         private void addRecipeButton_Click(object sender, EventArgs e)
         {
-            var recipesModel = new RecipesModel();
-            var recipesId = CreateRecipeInfo(recipesModel);
+            if (nameTextBox.Text != "")
+            {
+                var recipesModel = new RecipesModel();
+                var recipesId = CreateRecipeInfo(recipesModel);
 
-            db.InsertFullRecipe(ingredients, recipesId);
-            ResetForm(recipeGroupBox);
-            ResetForm(ingredientsGroupBox);
-            ResetForm(instructionsGroupBox);
+                db.InsertFullRecipe(ingredients, recipesId);
+                ResetForm();
+
+                MessageBox.Show("Recipe added.");
+            }
+            else
+            {
+                MessageBox.Show("Recipe requires at least a name.");
+            }
         }
 
-        private void ResetForm(GroupBox groupBox)
+        private void ResetGroupBoxes(GroupBox groupBox)
         {
             foreach (var control in groupBox.Controls)
             {
@@ -154,6 +167,18 @@ namespace recipe_manager.Controls
             }
             ingredients = new List<IngredientsModel>();
             instructions = new List<InstructionsModel>();
+        }
+
+        private void ResetForm()
+        {
+            ResetGroupBoxes(recipeGroupBox);
+            ResetGroupBoxes(ingredientsGroupBox);
+            ResetGroupBoxes(instructionsGroupBox);
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            ResetForm();
         }
     }
 }

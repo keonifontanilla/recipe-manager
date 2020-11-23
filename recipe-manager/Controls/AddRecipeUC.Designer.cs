@@ -53,6 +53,7 @@ namespace recipe_manager.Controls
             this.instructionsGroupBox = new System.Windows.Forms.GroupBox();
             this.removeInstuctionButton = new System.Windows.Forms.Button();
             this.addRecipeButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.ingredientsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ingredientsDataGridView)).BeginInit();
             this.recipeGroupBox.SuspendLayout();
@@ -290,7 +291,7 @@ namespace recipe_manager.Controls
             // addRecipeButton
             // 
             this.addRecipeButton.AutoSize = true;
-            this.addRecipeButton.Location = new System.Drawing.Point(386, 572);
+            this.addRecipeButton.Location = new System.Drawing.Point(383, 572);
             this.addRecipeButton.Name = "addRecipeButton";
             this.addRecipeButton.Size = new System.Drawing.Size(88, 23);
             this.addRecipeButton.TabIndex = 18;
@@ -298,10 +299,22 @@ namespace recipe_manager.Controls
             this.addRecipeButton.UseVisualStyleBackColor = true;
             this.addRecipeButton.Click += new System.EventHandler(this.addRecipeButton_Click);
             // 
+            // clearButton
+            // 
+            this.clearButton.AutoSize = true;
+            this.clearButton.Location = new System.Drawing.Point(799, 572);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(44, 23);
+            this.clearButton.TabIndex = 20;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // AddRecipeUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.addRecipeButton);
             this.Controls.Add(this.instructionsGroupBox);
             this.Controls.Add(this.recipeGroupBox);
@@ -346,5 +359,6 @@ namespace recipe_manager.Controls
         private System.Windows.Forms.Button removeIngredientButton;
         private System.Windows.Forms.Button removeInstuctionButton;
         private System.Windows.Forms.DataGridView ingredientsDataGridView;
+        private System.Windows.Forms.Button clearButton;
     }
 }

@@ -29,7 +29,7 @@ namespace recipe_manager
                 var dParam = new DynamicParameters();
 
                 dParam.Add("@RecipeName", rm.RecipeName);
-                dParam.Add("@RecipeDescription", rm.RecipeDescription);
+                if (rm.RecipeDescription != "") dParam.Add("@RecipeDescription", rm.RecipeDescription);
                 dParam.Add("@RecipeType", rm.RecipeType);
                 dParam.Add("@RecipeId", 0, DbType.Int32, direction: ParameterDirection.Output);
 
