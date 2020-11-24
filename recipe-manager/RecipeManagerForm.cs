@@ -13,44 +13,68 @@ namespace recipe_manager
 {
     public partial class RecipeManagerForm : Form
     {
-        private Panel AddRecipePanel = new Panel();
-        private Panel AllRecipesPanel = new Panel();
+        private Panel addRecipePanel = new Panel();
+        private Panel allRecipesPanel = new Panel();
 
-        DataAccess db = new DataAccess();
+        private DataAccess db = new DataAccess();
 
         public RecipeManagerForm()
         {
             InitializeComponent();
+            InitializeAddRecipes();
+            InitializeAllRecipes();
 
             topBarPanel.Controls.Add(new TopBar());
-            this.Controls.Add(AddRecipePanel);
-            this.Controls.Add(AllRecipesPanel);
+        }
+
+        private void InitializeAddRecipes()
+        {
+            addRecipePanel.Size = homePanel.Size;
+            addRecipePanel.Location = homePanel.Location;
+            addRecipePanel.Controls.Add(new AddRecipeUC(db));
+            this.Controls.Add(addRecipePanel);
+        }
+
+        private void InitializeAllRecipes()
+        {
+            allRecipesPanel.Size = homePanel.Size;
+            allRecipesPanel.Location = homePanel.Location;
+            
+            this.Controls.Add(allRecipesPanel);
         }
 
         private void addRecipeButton_Click(object sender, EventArgs e)
         {
-            AddRecipePanel.Size = homePanel.Size;
-            AddRecipePanel.Location = homePanel.Location;
-            AddRecipePanel.Controls.Add(new AddRecipeUC(db));
-
             homePanel.Hide();
-            AddRecipePanel.Show();
+            addRecipePanel.Show();
         }
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            AddRecipePanel.Hide();
+            addRecipePanel.Hide();
             homePanel.Show();
         }
 
         private void allRecipesButton_Click(object sender, EventArgs e)
         {
-            AllRecipesPanel.Size = homePanel.Size;
-            AllRecipesPanel.Location = homePanel.Location;
-            AllRecipesPanel.Controls.Add(new RecipesUC(db));
+            RemoveOldRef(allRecipesPanel, "RecipesUC");
+
+            var recipesUC = new RecipesUC(db);
+            allRecipesPanel.Controls.Add(recipesUC);
 
             homePanel.Hide();
-            AllRecipesPanel.Show();
+            addRecipePanel.Hide();
+            allRecipesPanel.Show();
+        }
+
+        private void RemoveOldRef(Panel panel, string name)
+        {
+            var oldRef = panel.Controls[name];
+            if (oldRef != null)
+            {
+                panel.Controls.Remove(oldRef);
+                oldRef.Dispose();
+            }
         }
     }
 }

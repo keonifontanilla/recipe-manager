@@ -32,6 +32,7 @@ namespace recipe_manager.Controls
             this.recipesDataGridView = new System.Windows.Forms.DataGridView();
             this.searchLabel = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.viewButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recipesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,10 +63,21 @@ namespace recipe_manager.Controls
             this.searchTextBox.Size = new System.Drawing.Size(349, 20);
             this.searchTextBox.TabIndex = 3;
             // 
+            // viewButton
+            // 
+            this.viewButton.Location = new System.Drawing.Point(28, 28);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(75, 23);
+            this.viewButton.TabIndex = 4;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
+            // 
             // RecipesUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.viewButton);
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.recipesDataGridView);
@@ -82,5 +94,6 @@ namespace recipe_manager.Controls
         private System.Windows.Forms.DataGridView recipesDataGridView;
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button viewButton;
     }
 }
