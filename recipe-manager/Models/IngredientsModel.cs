@@ -28,8 +28,15 @@ namespace recipe_manager.Models
         /// </summary>
         public string IngredientQuantity { get; set; }
         /// <summary>
-        /// This is the ingredient's unti.
+        /// This is the ingredient's unit.
         /// </summary>
         public string IngredientUnit { get; set; }
+        /// <summary>
+        /// Displays ingredient info.
+        /// </summary>
+        public string IngredientInfo
+        {
+            get { return $"{Ingredient} - {IngredientQuantity} - {IngredientUnit} {Environment.NewLine}"; }
+        }
     }
 }

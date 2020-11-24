@@ -1,4 +1,5 @@
-﻿using System;
+﻿using recipe_manager.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,6 +40,8 @@ namespace recipe_manager.Controls
         {
             if (viewButton.Text == "View")
             {
+                ViewRecipe();
+
                 viewRecipeTextBox.Show();
                 recipesDataGridView.Hide();
                 viewButton.Text = "Close";
@@ -49,6 +52,22 @@ namespace recipe_manager.Controls
                 recipesDataGridView.Show();
                 viewButton.Text = "View";
             }
+        }
+
+        private void ViewRecipe()
+        {
+            var ingredients = new List<IngredientsModel>();
+            var instructions = new List<InstructionsModel>();
+
+            var rowIndex = recipesDataGridView.CurrentRow.Index;
+            var recipeId = (int)recipesDataGridView.Rows[rowIndex].Cells["RecipeId"].Value;
+
+            var recipesModel = db.ViewRecipe(recipeId, out ingredients, out instructions);
+
+            viewRecipeTextBox.Text = recipesModel.RecipeInfo;
+
+            ingredients.ForEach(x => viewRecipeTextBox.Text += x.IngredientInfo);
+            instructions.ForEach(x => viewRecipeTextBox.Text += x.InstructionInfo);
         }
     }
 }

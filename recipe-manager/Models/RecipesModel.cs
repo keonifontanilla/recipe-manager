@@ -35,5 +35,12 @@ namespace recipe_manager.Models
         /// The date the recipe was updated.
         /// </summary>
         public DateTime UpdatedDate { get; set; }
+        /// <summary>
+        /// Displays recipe info.
+        /// </summary>
+        public string RecipeInfo
+        {
+            get { return $"Name: {RecipeName}{Environment.NewLine}Description: {RecipeDescription}{Environment.NewLine}Type: {RecipeType}{Environment.NewLine}"; }
+        }
     }
 }

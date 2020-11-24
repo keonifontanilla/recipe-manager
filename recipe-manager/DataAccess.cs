@@ -64,5 +64,19 @@ namespace recipe_manager
                 connection.Execute("dbo.spRecipeIngredients_Insert @RecipeId, @IngredientId, @IngredientQuantity, @IngredientUnit", ingredients);
             }
         }
+
+        public RecipesModel ViewRecipe(int recipeId, out List<IngredientsModel> ingredients, out List<InstructionsModel> instructions)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
+            {
+                var ingredientsModel = new IngredientsModel { RecipeId = recipeId };
+                var instructionsModel = new InstructionsModel { RecipeId = recipeId };
+
+                ingredients = connection.Query<IngredientsModel>("dbo.spRecipeIngredients_SelectSingle @RecipeID", ingredientsModel).ToList();
+                instructions = connection.Query<InstructionsModel>("dbo.spInstructions_SelectSingle @RecipeID", instructionsModel).ToList();
+
+                return connection.QuerySingle<RecipesModel>("dbo.spRecipes_SelectSingle @RecipeId", new { RecipeId = recipeId });
+            }
+        }
     }
 }

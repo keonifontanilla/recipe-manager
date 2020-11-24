@@ -23,6 +23,13 @@ namespace recipe_manager.Models
         /// This is the instruction.
         /// </summary>
         public string Instruction { get; set; }
+        /// <summary>
+        /// Displays instruction info.
+        /// </summary>
+        public string InstructionInfo
+        {
+            get { return $"{Instruction} {Environment.NewLine}"; }
+        }
 
     }
 }
