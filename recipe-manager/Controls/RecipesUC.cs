@@ -22,18 +22,8 @@ namespace recipe_manager.Controls
             this.db = db;
 
             InitializeComponent();
-            InitializeViewRecipe();
 
             recipesDataGridView.DataSource = db.ListRecipes();
-        }
-
-        private void InitializeViewRecipe()
-        {
-            viewRecipeTextBox.Size = recipesDataGridView.Size;
-            viewRecipeTextBox.Location = recipesDataGridView.Location;
-            viewRecipeTextBox.Multiline = true;
-            viewRecipeTextBox.ReadOnly = true;
-            this.Controls.Add(viewRecipeTextBox);
         }
 
         private void viewButton_Click(object sender, EventArgs e)
@@ -42,15 +32,17 @@ namespace recipe_manager.Controls
             {
                 ViewRecipe();
 
-                viewRecipeTextBox.Show();
+                viewPanel.Show();
                 recipesDataGridView.Hide();
                 viewButton.Text = "Close";
             }
             else
             {
-                viewRecipeTextBox.Hide();
+                viewPanel.Hide();
                 recipesDataGridView.Show();
                 viewButton.Text = "View";
+
+                ResetViewRecipe();
             }
         }
 
@@ -64,10 +56,21 @@ namespace recipe_manager.Controls
 
             var recipesModel = db.ViewRecipe(recipeId, out ingredients, out instructions);
 
-            viewRecipeTextBox.Text = recipesModel.RecipeInfo;
+            nameLabel.Text = recipesModel.RecipeName;
+            descriptionTextBox.Text = recipesModel.RecipeDescription;
+            typeLabel.Text = $"Type: {recipesModel.RecipeType}";
 
-            ingredients.ForEach(x => viewRecipeTextBox.Text += x.IngredientInfo);
-            instructions.ForEach(x => viewRecipeTextBox.Text += x.InstructionInfo);
+            ingredients.ForEach(x => ingredientsTextBox.Text += x.IngredientInfo);
+            instructions.ForEach(x => instructionsTextBox.Text += x.InstructionInfo);
+        }
+
+        private void ResetViewRecipe()
+        {
+            nameLabel.Text = "";
+            descriptionTextBox.Text = "";
+            typeLabel.Text = "";
+            ingredientsTextBox.Text = "";
+            instructionsTextBox.Text = "";
         }
     }
 }

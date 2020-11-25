@@ -33,7 +33,17 @@ namespace recipe_manager.Controls
             this.searchLabel = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.viewButton = new System.Windows.Forms.Button();
+            this.viewPanel = new System.Windows.Forms.Panel();
+            this.instructionsTextBox = new System.Windows.Forms.TextBox();
+            this.instructionsLabel = new System.Windows.Forms.Label();
+            this.ingredientsTextBox = new System.Windows.Forms.TextBox();
+            this.ingredientsLabel = new System.Windows.Forms.Label();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.recipesDataGridView)).BeginInit();
+            this.viewPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // recipesDataGridView
@@ -73,10 +83,105 @@ namespace recipe_manager.Controls
             this.viewButton.UseVisualStyleBackColor = true;
             this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
+            // viewPanel
+            // 
+            this.viewPanel.Controls.Add(this.instructionsTextBox);
+            this.viewPanel.Controls.Add(this.instructionsLabel);
+            this.viewPanel.Controls.Add(this.ingredientsTextBox);
+            this.viewPanel.Controls.Add(this.ingredientsLabel);
+            this.viewPanel.Controls.Add(this.typeLabel);
+            this.viewPanel.Controls.Add(this.descriptionLabel);
+            this.viewPanel.Controls.Add(this.descriptionTextBox);
+            this.viewPanel.Controls.Add(this.nameLabel);
+            this.viewPanel.Location = new System.Drawing.Point(28, 68);
+            this.viewPanel.Name = "viewPanel";
+            this.viewPanel.Size = new System.Drawing.Size(825, 524);
+            this.viewPanel.TabIndex = 5;
+            this.viewPanel.Visible = false;
+            // 
+            // instructionsTextBox
+            // 
+            this.instructionsTextBox.Location = new System.Drawing.Point(456, 48);
+            this.instructionsTextBox.Multiline = true;
+            this.instructionsTextBox.Name = "instructionsTextBox";
+            this.instructionsTextBox.ReadOnly = true;
+            this.instructionsTextBox.Size = new System.Drawing.Size(363, 465);
+            this.instructionsTextBox.TabIndex = 14;
+            // 
+            // instructionsLabel
+            // 
+            this.instructionsLabel.AutoSize = true;
+            this.instructionsLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionsLabel.Location = new System.Drawing.Point(452, 26);
+            this.instructionsLabel.Name = "instructionsLabel";
+            this.instructionsLabel.Size = new System.Drawing.Size(93, 19);
+            this.instructionsLabel.TabIndex = 13;
+            this.instructionsLabel.Text = "Instructions:";
+            // 
+            // ingredientsTextBox
+            // 
+            this.ingredientsTextBox.Location = new System.Drawing.Point(8, 278);
+            this.ingredientsTextBox.Multiline = true;
+            this.ingredientsTextBox.Name = "ingredientsTextBox";
+            this.ingredientsTextBox.ReadOnly = true;
+            this.ingredientsTextBox.Size = new System.Drawing.Size(363, 201);
+            this.ingredientsTextBox.TabIndex = 12;
+            // 
+            // ingredientsLabel
+            // 
+            this.ingredientsLabel.AutoSize = true;
+            this.ingredientsLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ingredientsLabel.Location = new System.Drawing.Point(5, 256);
+            this.ingredientsLabel.Name = "ingredientsLabel";
+            this.ingredientsLabel.Size = new System.Drawing.Size(90, 19);
+            this.ingredientsLabel.TabIndex = 11;
+            this.ingredientsLabel.Text = "Ingredients:";
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeLabel.Location = new System.Drawing.Point(4, 494);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(98, 19);
+            this.typeLabel.TabIndex = 7;
+            this.typeLabel.Text = "Type: <type>";
+            // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLabel.Location = new System.Drawing.Point(4, 26);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(91, 19);
+            this.descriptionLabel.TabIndex = 4;
+            this.descriptionLabel.Text = "Description:";
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.Location = new System.Drawing.Point(8, 48);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.ReadOnly = true;
+            this.descriptionTextBox.Size = new System.Drawing.Size(363, 188);
+            this.descriptionTextBox.TabIndex = 5;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nameLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(0, 0);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(825, 19);
+            this.nameLabel.TabIndex = 1;
+            this.nameLabel.Text = "Name: <name>";
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // RecipesUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.viewPanel);
             this.Controls.Add(this.viewButton);
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.searchTextBox);
@@ -84,6 +189,8 @@ namespace recipe_manager.Controls
             this.Name = "RecipesUC";
             this.Size = new System.Drawing.Size(878, 614);
             ((System.ComponentModel.ISupportInitialize)(this.recipesDataGridView)).EndInit();
+            this.viewPanel.ResumeLayout(false);
+            this.viewPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,5 +202,14 @@ namespace recipe_manager.Controls
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button viewButton;
+        private System.Windows.Forms.Panel viewPanel;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label descriptionLabel;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.TextBox ingredientsTextBox;
+        private System.Windows.Forms.Label ingredientsLabel;
+        private System.Windows.Forms.TextBox instructionsTextBox;
+        private System.Windows.Forms.Label instructionsLabel;
     }
 }
