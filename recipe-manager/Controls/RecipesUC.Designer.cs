@@ -101,6 +101,7 @@ namespace recipe_manager.Controls
             // 
             // instructionsTextBox
             // 
+            this.instructionsTextBox.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.instructionsTextBox.Location = new System.Drawing.Point(456, 48);
             this.instructionsTextBox.Multiline = true;
             this.instructionsTextBox.Name = "instructionsTextBox";
@@ -111,15 +112,16 @@ namespace recipe_manager.Controls
             // instructionsLabel
             // 
             this.instructionsLabel.AutoSize = true;
-            this.instructionsLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionsLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instructionsLabel.Location = new System.Drawing.Point(452, 26);
             this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(93, 19);
+            this.instructionsLabel.Size = new System.Drawing.Size(112, 22);
             this.instructionsLabel.TabIndex = 13;
             this.instructionsLabel.Text = "Instructions:";
             // 
             // ingredientsTextBox
             // 
+            this.ingredientsTextBox.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.ingredientsTextBox.Location = new System.Drawing.Point(8, 278);
             this.ingredientsTextBox.Multiline = true;
             this.ingredientsTextBox.Name = "ingredientsTextBox";
@@ -130,35 +132,36 @@ namespace recipe_manager.Controls
             // ingredientsLabel
             // 
             this.ingredientsLabel.AutoSize = true;
-            this.ingredientsLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ingredientsLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ingredientsLabel.Location = new System.Drawing.Point(5, 256);
             this.ingredientsLabel.Name = "ingredientsLabel";
-            this.ingredientsLabel.Size = new System.Drawing.Size(90, 19);
+            this.ingredientsLabel.Size = new System.Drawing.Size(107, 22);
             this.ingredientsLabel.TabIndex = 11;
             this.ingredientsLabel.Text = "Ingredients:";
             // 
             // typeLabel
             // 
             this.typeLabel.AutoSize = true;
-            this.typeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typeLabel.Location = new System.Drawing.Point(4, 494);
             this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(98, 19);
+            this.typeLabel.Size = new System.Drawing.Size(116, 22);
             this.typeLabel.TabIndex = 7;
             this.typeLabel.Text = "Type: <type>";
             // 
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel.Location = new System.Drawing.Point(4, 26);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(91, 19);
+            this.descriptionLabel.Size = new System.Drawing.Size(109, 22);
             this.descriptionLabel.TabIndex = 4;
             this.descriptionLabel.Text = "Description:";
             // 
             // descriptionTextBox
             // 
+            this.descriptionTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionTextBox.Location = new System.Drawing.Point(8, 48);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
@@ -169,7 +172,7 @@ namespace recipe_manager.Controls
             // nameLabel
             // 
             this.nameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.nameLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.Location = new System.Drawing.Point(0, 0);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(825, 19);

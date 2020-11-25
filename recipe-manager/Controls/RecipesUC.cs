@@ -13,8 +13,6 @@ namespace recipe_manager.Controls
 {
     public partial class RecipesUC : UserControl
     {
-        private TextBox viewRecipeTextBox = new TextBox();
-
         private DataAccess db = null;
 
         public RecipesUC(DataAccess db)
@@ -51,17 +49,21 @@ namespace recipe_manager.Controls
             var ingredients = new List<IngredientsModel>();
             var instructions = new List<InstructionsModel>();
 
-            var rowIndex = recipesDataGridView.CurrentRow.Index;
-            var recipeId = (int)recipesDataGridView.Rows[rowIndex].Cells["RecipeId"].Value;
+            if (recipesDataGridView.CurrentRow != null)
+            {
+                var rowIndex = recipesDataGridView.CurrentRow.Index;
+                var recipeId = (int)recipesDataGridView.Rows[rowIndex].Cells["RecipeId"].Value;
 
-            var recipesModel = db.ViewRecipe(recipeId, out ingredients, out instructions);
+                var recipesModel = db.ViewRecipe(recipeId, out ingredients, out instructions);
 
-            nameLabel.Text = recipesModel.RecipeName;
-            descriptionTextBox.Text = recipesModel.RecipeDescription;
-            typeLabel.Text = $"Type: {recipesModel.RecipeType}";
+                nameLabel.Text = recipesModel.RecipeName;
+                descriptionTextBox.Text = recipesModel.RecipeDescription;
+                typeLabel.Text = $"Type: {recipesModel.RecipeType}";
 
-            ingredients.ForEach(x => ingredientsTextBox.Text += x.IngredientInfo);
-            instructions.ForEach(x => instructionsTextBox.Text += x.InstructionInfo);
+                var count = 1;
+                ingredients.ForEach(x => ingredientsTextBox.Text += x.IngredientInfo);
+                instructions.ForEach(x => instructionsTextBox.Text += $"Step {count++}. {x.InstructionInfo}");
+            }
         }
 
         private void ResetViewRecipe()

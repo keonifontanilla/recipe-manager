@@ -36,7 +36,7 @@ namespace recipe_manager.Models
         /// </summary>
         public string IngredientInfo
         {
-            get { return $"{Ingredient} - {IngredientQuantity} - {IngredientUnit} {Environment.NewLine}"; }
+            get { return $"{IngredientQuantity} {IngredientUnit} {Ingredient}{Environment.NewLine}"; }
         }
     }
 }
