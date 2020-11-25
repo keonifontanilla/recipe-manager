@@ -13,10 +13,11 @@ namespace recipe_manager.Controls
 {
     public partial class AddRecipeUC : UserControl
     {
-        List<IngredientsModel> ingredients = new List<IngredientsModel>(); 
-        List<InstructionsModel> instructions = new List<InstructionsModel>(); 
+        private List<IngredientsModel> ingredients = new List<IngredientsModel>(); 
+        private List<InstructionsModel> instructions = new List<InstructionsModel>(); 
 
-        DataAccess db = null;
+        private DataAccess db = null;
+        private int ingredientId = 0;
 
         public AddRecipeUC(DataAccess db)
         {
@@ -44,6 +45,7 @@ namespace recipe_manager.Controls
             im.Ingredient = ingredientsTextBox.Text;
             im.IngredientQuantity = quantityTextBox.Text;
             im.IngredientUnit = unitTextBox.Text;
+            im.IngredientId = ingredientId++;
         }
 
         private void FillInstructionsModel(InstructionsModel inm)
@@ -53,6 +55,8 @@ namespace recipe_manager.Controls
 
         private void FormatIngredientDataGridView()
         {
+            ingredientsDataGridView.Columns.Add("IngredientId", "Id");
+            ingredientsDataGridView.Columns["IngredientId"].Visible = false;
             ingredientsDataGridView.Columns.Add("Ingredient", "Ingredient");
             ingredientsDataGridView.Columns.Add("Quantity", "Quantity");
             ingredientsDataGridView.Columns.Add("Unit", "Unit");
@@ -67,7 +71,7 @@ namespace recipe_manager.Controls
                 FillIngredientsModel(ingredientsModel);
                 ingredients.Add(ingredientsModel);
 
-                ingredientsDataGridView.Rows.Add(ingredientsModel.Ingredient, ingredientsModel.IngredientQuantity, ingredientsModel.IngredientUnit);
+                ingredientsDataGridView.Rows.Add(ingredientsModel.IngredientId, ingredientsModel.Ingredient, ingredientsModel.IngredientQuantity, ingredientsModel.IngredientUnit);
 
                 ingredientsTextBox.Clear();
                 quantityTextBox.Clear();
@@ -179,6 +183,26 @@ namespace recipe_manager.Controls
         private void clearButton_Click(object sender, EventArgs e)
         {
             ResetForm();
+        }
+
+        private void ingredientsDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (ingredientsDataGridView.CurrentRow != null)
+            {
+                var index = ingredientsDataGridView.CurrentRow.Index;
+                var cells = ingredientsDataGridView.Rows[index].Cells;
+                var id = (int)cells["IngredientId"].Value;
+
+                ingredients.ForEach(x =>
+                {
+                    if (x.IngredientId == id)
+                    {
+                        x.Ingredient = (string)cells["Ingredient"].Value;
+                        x.IngredientQuantity = (string)cells["Quantity"].Value;
+                        x.IngredientUnit = (string)cells["Unit"].Value;
+                    }
+                });
+            }
         }
     }
 }

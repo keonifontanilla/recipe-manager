@@ -20,8 +20,15 @@ namespace recipe_manager.Controls
             this.db = db;
 
             InitializeComponent();
+            InitializeRecipesGrid();
+        }
 
+        private void InitializeRecipesGrid()
+        {
             recipesDataGridView.DataSource = db.ListRecipes();
+            recipesDataGridView.Columns["RecipeInfo"].Visible = false;
+            recipesDataGridView.Columns["RecipeId"].HeaderText = "Id";
+            recipesDataGridView.Columns["RecipeId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         private void viewButton_Click(object sender, EventArgs e)

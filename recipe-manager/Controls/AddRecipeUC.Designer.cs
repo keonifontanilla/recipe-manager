@@ -235,9 +235,9 @@ namespace recipe_manager.Controls
             this.ingredientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ingredientsDataGridView.Location = new System.Drawing.Point(142, 109);
             this.ingredientsDataGridView.Name = "ingredientsDataGridView";
-            this.ingredientsDataGridView.ReadOnly = true;
             this.ingredientsDataGridView.Size = new System.Drawing.Size(240, 150);
             this.ingredientsDataGridView.TabIndex = 19;
+            this.ingredientsDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ingredientsDataGridView_CellValueChanged);
             // 
             // removeIngredientButton
             // 
