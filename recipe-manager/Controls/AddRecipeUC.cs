@@ -18,6 +18,7 @@ namespace recipe_manager.Controls
 
         private DataAccess db = null;
         private int ingredientId = 0;
+        private bool editInstructions = false;
 
         public AddRecipeUC(DataAccess db)
         {
@@ -45,7 +46,7 @@ namespace recipe_manager.Controls
             im.Ingredient = ingredientsTextBox.Text;
             im.IngredientQuantity = quantityTextBox.Text;
             im.IngredientUnit = unitTextBox.Text;
-            im.IngredientId = ingredientId++;
+            im.IngredientId = this.ingredientId++;
         }
 
         private void FillInstructionsModel(InstructionsModel inm)
@@ -178,6 +179,11 @@ namespace recipe_manager.Controls
             ResetGroupBoxes(recipeGroupBox);
             ResetGroupBoxes(ingredientsGroupBox);
             ResetGroupBoxes(instructionsGroupBox);
+
+            ingredientId = 0;
+            ingredients = new List<IngredientsModel>();
+            instructions = new List<InstructionsModel>();
+            editInstructions = true;
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -203,6 +209,37 @@ namespace recipe_manager.Controls
                     }
                 });
             }
+        }
+
+        private void instructionsListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (instructionsListBox.SelectedIndex != -1)
+            {
+                instructionsTextBox.Text = instructionsListBox.SelectedItem.ToString();
+                editInstructions = true;
+            }
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            var index = instructionsListBox.SelectedIndex;
+
+            if (editInstructions)
+            {
+                this.instructions[index].Instruction = instructionsTextBox.Text;
+                instructionsListBox.Items[index] = instructionsTextBox.Text;
+                
+                instructionsListBox.Refresh();
+
+                instructionsTextBox.Text = "";
+                editInstructions = false;
+            }
+        }
+
+        private void instructionsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            instructionsTextBox.Text = "";
+            editInstructions = false;
         }
     }
 }
