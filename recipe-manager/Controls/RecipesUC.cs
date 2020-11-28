@@ -13,6 +13,11 @@ namespace recipe_manager.Controls
 {
     public partial class RecipesUC : UserControl
     {
+        private List<IngredientsModel> ingredients = new List<IngredientsModel>();
+        private List<InstructionsModel> instructions = new List<InstructionsModel>();
+        private RecipesModel recipesModel = null;
+
+        private Panel updatePanel = new Panel();
         private DataAccess db = null;
 
         public RecipesUC(DataAccess db)
@@ -53,15 +58,12 @@ namespace recipe_manager.Controls
 
         private void ViewRecipe()
         {
-            var ingredients = new List<IngredientsModel>();
-            var instructions = new List<InstructionsModel>();
-
             if (recipesDataGridView.CurrentRow != null)
             {
                 var rowIndex = recipesDataGridView.CurrentRow.Index;
                 var recipeId = (int)recipesDataGridView.Rows[rowIndex].Cells["RecipeId"].Value;
 
-                var recipesModel = db.ViewRecipe(recipeId, out ingredients, out instructions);
+                recipesModel = db.ViewRecipe(recipeId, out ingredients, out instructions);
 
                 nameLabel.Text = recipesModel.RecipeName;
                 descriptionTextBox.Text = recipesModel.RecipeDescription;
@@ -80,6 +82,20 @@ namespace recipe_manager.Controls
             typeLabel.Text = "";
             ingredientsTextBox.Text = "";
             instructionsTextBox.Text = "";
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            updatePanel.Dock = DockStyle.Fill;
+            updatePanel.Location = viewPanel.Location;
+
+            this.Controls.Add(updatePanel);
+
+            ViewRecipe();
+
+            updatePanel.Controls.Add(new AddRecipeUC(db, recipesModel, ingredients, instructions, update: true));
+
+            updatePanel.BringToFront();
         }
     }
 }

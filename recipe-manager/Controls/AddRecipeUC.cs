@@ -14,11 +14,13 @@ namespace recipe_manager.Controls
     public partial class AddRecipeUC : UserControl
     {
         private List<IngredientsModel> ingredients = new List<IngredientsModel>(); 
-        private List<InstructionsModel> instructions = new List<InstructionsModel>(); 
+        private List<InstructionsModel> instructions = new List<InstructionsModel>();
+        private RecipesModel recipesModel = new RecipesModel();
 
         private DataAccess db = null;
         private int ingredientId = 0;
         private bool editInstructions = false;
+        private bool update = false;
 
         public AddRecipeUC(DataAccess db)
         {
@@ -27,6 +29,30 @@ namespace recipe_manager.Controls
             InitializeComponent();
             InitializeRecipesComboBox();
             FormatIngredientDataGridView();
+        }
+
+        public AddRecipeUC(DataAccess db, RecipesModel rm, List<IngredientsModel> ingredients, List<InstructionsModel> instructions, bool update)
+        {
+            this.db = db;
+            this.recipesModel = rm;
+            this.ingredients = ingredients;
+            this.instructions = instructions;
+            this.update = update;
+
+            InitializeComponent();
+            InitializeRecipesComboBox();
+            FormatIngredientDataGridView();
+
+            nameTextBox.Text = rm.RecipeName;
+            descriptionTextBox.Text = rm.RecipeDescription;
+            typeComboBox.SelectedItem = rm.RecipeType;
+
+            ingredients.ForEach(x =>
+            {
+                ingredientsDataGridView.Rows.Add(x.IngredientId, x.Ingredient, x.IngredientQuantity, x.IngredientUnit);
+            });
+
+            instructions.ForEach(x => instructionsListBox.Items.Add(x.Instruction));
         }
 
         private void InitializeRecipesComboBox()
@@ -128,13 +154,21 @@ namespace recipe_manager.Controls
         {
             if (nameTextBox.Text != "")
             {
-                var recipesModel = new RecipesModel();
-                var recipesId = CreateRecipeInfo(recipesModel);
+                if (!update)
+                {
+                    var recipesModel = new RecipesModel();
+                    var recipesId = CreateRecipeInfo(recipesModel);
 
-                db.InsertFullRecipe(ingredients, recipesId);
+                    db.InsertFullRecipe(ingredients, recipesId);
+
+                    MessageBox.Show("Recipe added.");
+                }
+                else
+                {
+                    FillRecipesModel(this.recipesModel);
+                    db.UpdateRecipe(this.recipesModel, ingredients, instructions);
+                }
                 ResetForm();
-
-                MessageBox.Show("Recipe added.");
             }
             else
             {
@@ -184,6 +218,7 @@ namespace recipe_manager.Controls
             ingredients = new List<IngredientsModel>();
             instructions = new List<InstructionsModel>();
             editInstructions = true;
+            update = false;
         }
 
         private void clearButton_Click(object sender, EventArgs e)

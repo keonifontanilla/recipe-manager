@@ -32,7 +32,6 @@ namespace recipe_manager.Controls
             this.recipesDataGridView = new System.Windows.Forms.DataGridView();
             this.searchLabel = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.viewButton = new System.Windows.Forms.Button();
             this.viewPanel = new System.Windows.Forms.Panel();
             this.instructionsTextBox = new System.Windows.Forms.TextBox();
             this.instructionsLabel = new System.Windows.Forms.Label();
@@ -42,6 +41,8 @@ namespace recipe_manager.Controls
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.viewButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recipesDataGridView)).BeginInit();
             this.viewPanel.SuspendLayout();
             this.SuspendLayout();
@@ -72,16 +73,6 @@ namespace recipe_manager.Controls
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(349, 20);
             this.searchTextBox.TabIndex = 3;
-            // 
-            // viewButton
-            // 
-            this.viewButton.Location = new System.Drawing.Point(28, 28);
-            this.viewButton.Name = "viewButton";
-            this.viewButton.Size = new System.Drawing.Size(75, 23);
-            this.viewButton.TabIndex = 4;
-            this.viewButton.Text = "View";
-            this.viewButton.UseVisualStyleBackColor = true;
-            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
             // viewPanel
             // 
@@ -180,10 +171,31 @@ namespace recipe_manager.Controls
             this.nameLabel.Text = "Name: <name>";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // viewButton
+            // 
+            this.viewButton.Location = new System.Drawing.Point(28, 28);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(75, 23);
+            this.viewButton.TabIndex = 4;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(109, 28);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 6;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
             // RecipesUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.viewPanel);
             this.Controls.Add(this.viewButton);
             this.Controls.Add(this.searchLabel);
@@ -204,7 +216,6 @@ namespace recipe_manager.Controls
         private System.Windows.Forms.DataGridView recipesDataGridView;
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Button viewButton;
         private System.Windows.Forms.Panel viewPanel;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label descriptionLabel;
@@ -214,5 +225,7 @@ namespace recipe_manager.Controls
         private System.Windows.Forms.Label ingredientsLabel;
         private System.Windows.Forms.TextBox instructionsTextBox;
         private System.Windows.Forms.Label instructionsLabel;
+        private System.Windows.Forms.Button viewButton;
+        private System.Windows.Forms.Button updateButton;
     }
 }
