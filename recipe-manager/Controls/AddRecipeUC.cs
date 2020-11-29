@@ -116,6 +116,7 @@ namespace recipe_manager.Controls
             {
                 var index = ingredientsDataGridView.CurrentRow.Index;
 
+                if (update) recipesModel.deletedIngredients.Add(ingredients[index]);
                 ingredientsDataGridView.Rows.RemoveAt(index);
                 ingredients.RemoveAt(index);
             }
@@ -142,10 +143,7 @@ namespace recipe_manager.Controls
 
             if (index != -1)
             {
-                if (update)
-                {
-                    recipesModel.deletedInstructions.Add(instructions[index]);
-                }
+                if (update) recipesModel.deletedInstructions.Add(instructions[index]);
                 instructionsListBox.Items.RemoveAt(index);
                 instructions.RemoveAt(index);
             }

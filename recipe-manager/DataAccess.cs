@@ -79,7 +79,6 @@ namespace recipe_manager
             }
         }
 
-        // TODO - delete unwanted.
         public void UpdateRecipe(RecipesModel rm, List<IngredientsModel> ingredients, List<InstructionsModel> instructions)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
@@ -92,10 +91,8 @@ namespace recipe_manager
                 connection.Execute("dbo.spInstructions_Update @RecipeId, @InstructionId, @Instruction", instructions);
                 connection.Execute("dbo.spRecipeIngredients_Update @RecipeId, @IngredientId, @IngredientQuantity, @IngredientUnit, @Ingredient", ingredients);
 
-                if (rm.deletedInstructions.Count > 0)
-                {
-                    connection.Execute("dbo.spInstructions_Delete @InstructionId", rm.deletedInstructions);
-                }
+                if (rm.deletedInstructions.Count > 0) connection.Execute("dbo.spInstructions_Delete @InstructionId", rm.deletedInstructions);
+                if (rm.deletedIngredients.Count > 0) connection.Execute("dbo.spIngredientRecipes_Delete @IngredientId", rm.deletedIngredients);
             }
         }
     }

@@ -36,9 +36,13 @@ namespace recipe_manager.Models
         /// </summary>
         public DateTime UpdatedDate { get; set; }
         /// <summary>
-        /// 
+        /// List of instructions to delete.
         /// </summary>
         public List<InstructionsModel> deletedInstructions { get; set; } = new List<InstructionsModel>();
+        /// <summary>
+        /// List of ingredients to delete.
+        /// </summary>
+        public List<IngredientsModel> deletedIngredients { get; set; } = new List<IngredientsModel>();
         /// <summary>
         /// Displays recipe info.
         /// </summary>
