@@ -42,7 +42,11 @@ namespace recipe_manager.Controls
             InitializeComponent();
             InitializeRecipesComboBox();
             FormatIngredientDataGridView();
+            InitializeUpdate(rm, ingredients, instructions);
+        }
 
+        private void InitializeUpdate(RecipesModel rm, List<IngredientsModel> ingredients, List<InstructionsModel> instructions)
+        {
             nameTextBox.Text = rm.RecipeName;
             descriptionTextBox.Text = rm.RecipeDescription;
             typeComboBox.SelectedItem = rm.RecipeType;
@@ -138,6 +142,10 @@ namespace recipe_manager.Controls
 
             if (index != -1)
             {
+                if (update)
+                {
+                    recipesModel.deletedInstructions.Add(instructions[index]);
+                }
                 instructionsListBox.Items.RemoveAt(index);
                 instructions.RemoveAt(index);
             }
@@ -167,6 +175,7 @@ namespace recipe_manager.Controls
                 {
                     FillRecipesModel(this.recipesModel);
                     db.UpdateRecipe(this.recipesModel, ingredients, instructions);
+                    MessageBox.Show("Update Successful.");
                 }
                 ResetForm();
             }

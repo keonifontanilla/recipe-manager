@@ -79,14 +79,23 @@ namespace recipe_manager
             }
         }
 
-        // TODO - Update and delete unwanted. Adding new instructions or ingredients.
+        // TODO - delete unwanted.
         public void UpdateRecipe(RecipesModel rm, List<IngredientsModel> ingredients, List<InstructionsModel> instructions)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
             {
                 connection.Execute("dbo.spRecipes_Update @RecipeID, @RecipeName, @RecipeDescription, @RecipeType", rm);
+
+                instructions.ForEach(x => x.RecipeId = rm.RecipeId);
+                ingredients.ForEach(x => x.RecipeId = rm.RecipeId);
+
                 connection.Execute("dbo.spInstructions_Update @RecipeId, @InstructionId, @Instruction", instructions);
                 connection.Execute("dbo.spRecipeIngredients_Update @RecipeId, @IngredientId, @IngredientQuantity, @IngredientUnit, @Ingredient", ingredients);
+
+                if (rm.deletedInstructions.Count > 0)
+                {
+                    connection.Execute("dbo.spInstructions_Delete @InstructionId", rm.deletedInstructions);
+                }
             }
         }
     }
