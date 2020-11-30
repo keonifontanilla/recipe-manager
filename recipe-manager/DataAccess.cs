@@ -95,5 +95,13 @@ namespace recipe_manager
                 if (rm.deletedIngredients.Count > 0) connection.Execute("dbo.spIngredientRecipes_Delete @IngredientId", rm.deletedIngredients);
             }
         }
+
+        public void DeleteFullRecipe(int recipeId)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
+            {
+                connection.Execute("dbo.spRecipes_DeleteFullRecipe @RecipeId", new { RecipeId = recipeId });
+            }
+        }
     }
 }

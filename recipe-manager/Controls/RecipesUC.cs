@@ -86,16 +86,32 @@ namespace recipe_manager.Controls
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            updatePanel.Dock = DockStyle.Fill;
-            updatePanel.Location = viewPanel.Location;
+            if (recipesDataGridView.CurrentRow != null)
+            {
+                updatePanel.Dock = DockStyle.Fill;
+                updatePanel.Location = viewPanel.Location;
 
-            this.Controls.Add(updatePanel);
+                this.Controls.Add(updatePanel);
 
-            ViewRecipe();
+                ViewRecipe();
 
-            updatePanel.Controls.Add(new AddRecipeUC(db, recipesModel, ingredients, instructions, update: true));
+                updatePanel.Controls.Add(new AddRecipeUC(db, recipesModel, ingredients, instructions, update: true));
 
-            updatePanel.BringToFront();
+                updatePanel.BringToFront();
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (recipesDataGridView.CurrentRow != null)
+            {
+                var rowIndex = recipesDataGridView.CurrentRow.Index;
+                var recipeId = (int)recipesDataGridView.Rows[rowIndex].Cells["RecipeId"].Value;
+
+                db.DeleteFullRecipe(recipeId);
+
+                InitializeRecipesGrid();
+            }
         }
     }
 }

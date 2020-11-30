@@ -43,6 +43,7 @@ namespace recipe_manager.Controls
             this.nameLabel = new System.Windows.Forms.Label();
             this.viewButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recipesDataGridView)).BeginInit();
             this.viewPanel.SuspendLayout();
             this.SuspendLayout();
@@ -191,10 +192,21 @@ namespace recipe_manager.Controls
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(190, 28);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 7;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // RecipesUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.viewPanel);
             this.Controls.Add(this.viewButton);
@@ -227,5 +239,6 @@ namespace recipe_manager.Controls
         private System.Windows.Forms.Label instructionsLabel;
         private System.Windows.Forms.Button viewButton;
         private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
