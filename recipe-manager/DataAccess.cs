@@ -22,6 +22,14 @@ namespace recipe_manager
             }
         }
 
+        public List<RecipesModel> SearchRecipes(string RecipeName, string RecipeType)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
+            {
+                return connection.Query<RecipesModel>("dbo.spRecipes_SearchRecipes @RecipeName, @RecipeType", new { RecipeName = $"%{RecipeName}%", RecipeType = RecipeType }).ToList();
+            }
+        }
+
         public int CreateRecipeInfo(RecipesModel rm, List<InstructionsModel> instructions)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
