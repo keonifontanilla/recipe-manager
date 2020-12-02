@@ -19,10 +19,12 @@ namespace recipe_manager.Controls
 
         private Panel updatePanel = new Panel();
         private DataAccess db = null;
+        private string recipeSearchType = "";
 
-        public RecipesUC(DataAccess db)
+        public RecipesUC(DataAccess db, string recipeSearchType)
         {
             this.db = db;
+            this.recipeSearchType = recipeSearchType;
 
             InitializeComponent();
             InitializeRecipesGrid();
@@ -30,10 +32,23 @@ namespace recipe_manager.Controls
 
         private void InitializeRecipesGrid()
         {
-            recipesDataGridView.DataSource = db.ListRecipes();
+            SetGridDatasource();
+
             recipesDataGridView.Columns["RecipeInfo"].Visible = false;
             recipesDataGridView.Columns["RecipeId"].HeaderText = "Id";
             recipesDataGridView.Columns["RecipeId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+        }
+
+        private void SetGridDatasource()
+        {
+            if (recipeSearchType != "All Recipes")
+            {
+                recipesDataGridView.DataSource = db.SearchRecipes("\\b", recipeSearchType);
+            }
+            else
+            {
+                recipesDataGridView.DataSource = db.ListRecipes();
+            }
         }
 
         private void viewButton_Click(object sender, EventArgs e)
@@ -143,7 +158,7 @@ namespace recipe_manager.Controls
         {
             if (searchTextBox.Text == "")
             {
-                recipesDataGridView.DataSource = db.ListRecipes();
+                SetGridDatasource();
             }
         }
     }

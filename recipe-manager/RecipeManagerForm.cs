@@ -55,11 +55,24 @@ namespace recipe_manager
             homePanel.Show();
         }
 
-        private void allRecipesButton_Click(object sender, EventArgs e)
+        //private void allRecipesButton_Click(object sender, EventArgs e)
+        //{
+        //    RemoveOldRef(allRecipesPanel, "RecipesUC");
+
+        //    var recipesUC = new RecipesUC(db);
+        //    allRecipesPanel.Controls.Add(recipesUC);
+
+        //    homePanel.Hide();
+        //    addRecipePanel.Hide();
+        //    allRecipesPanel.Show();
+        //}
+
+        private void recipesButton_Click(object sender, EventArgs e)
         {
             RemoveOldRef(allRecipesPanel, "RecipesUC");
 
-            var recipesUC = new RecipesUC(db);
+            var senderButton = (Button)sender;
+            var recipesUC = new RecipesUC(db, senderButton.Text);
             allRecipesPanel.Controls.Add(recipesUC);
 
             homePanel.Hide();

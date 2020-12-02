@@ -36,17 +36,17 @@ namespace recipe_manager
             this.titlePanel = new System.Windows.Forms.Panel();
             this.topBarPanel = new System.Windows.Forms.Panel();
             this.homePanel = new System.Windows.Forms.Panel();
-            this.allRecipesGroupBox = new System.Windows.Forms.GroupBox();
-            this.allRecipesButton = new System.Windows.Forms.Button();
-            this.breakfastRecipesGroupBox = new System.Windows.Forms.GroupBox();
-            this.breakfastRecipesButton = new System.Windows.Forms.Button();
             this.lunchRecipesGroupBox = new System.Windows.Forms.GroupBox();
             this.lunchRecipesButton = new System.Windows.Forms.Button();
+            this.breakfastRecipesGroupBox = new System.Windows.Forms.GroupBox();
+            this.breakfastRecipesButton = new System.Windows.Forms.Button();
+            this.allRecipesGroupBox = new System.Windows.Forms.GroupBox();
+            this.allRecipesButton = new System.Windows.Forms.Button();
             this.sideBarPanel.SuspendLayout();
             this.homePanel.SuspendLayout();
-            this.allRecipesGroupBox.SuspendLayout();
-            this.breakfastRecipesGroupBox.SuspendLayout();
             this.lunchRecipesGroupBox.SuspendLayout();
+            this.breakfastRecipesGroupBox.SuspendLayout();
+            this.allRecipesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBarPanel
@@ -132,25 +132,25 @@ namespace recipe_manager
             this.homePanel.Size = new System.Drawing.Size(878, 614);
             this.homePanel.TabIndex = 2;
             // 
-            // allRecipesGroupBox
+            // lunchRecipesGroupBox
             // 
-            this.allRecipesGroupBox.Controls.Add(this.allRecipesButton);
-            this.allRecipesGroupBox.Location = new System.Drawing.Point(6, 61);
-            this.allRecipesGroupBox.Name = "allRecipesGroupBox";
-            this.allRecipesGroupBox.Size = new System.Drawing.Size(218, 178);
-            this.allRecipesGroupBox.TabIndex = 0;
-            this.allRecipesGroupBox.TabStop = false;
+            this.lunchRecipesGroupBox.Controls.Add(this.lunchRecipesButton);
+            this.lunchRecipesGroupBox.Location = new System.Drawing.Point(636, 61);
+            this.lunchRecipesGroupBox.Name = "lunchRecipesGroupBox";
+            this.lunchRecipesGroupBox.Size = new System.Drawing.Size(218, 178);
+            this.lunchRecipesGroupBox.TabIndex = 2;
+            this.lunchRecipesGroupBox.TabStop = false;
             // 
-            // allRecipesButton
+            // lunchRecipesButton
             // 
-            this.allRecipesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.allRecipesButton.Location = new System.Drawing.Point(3, 152);
-            this.allRecipesButton.Name = "allRecipesButton";
-            this.allRecipesButton.Size = new System.Drawing.Size(212, 23);
-            this.allRecipesButton.TabIndex = 0;
-            this.allRecipesButton.Text = "All Recipes";
-            this.allRecipesButton.UseVisualStyleBackColor = true;
-            this.allRecipesButton.Click += new System.EventHandler(this.allRecipesButton_Click);
+            this.lunchRecipesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lunchRecipesButton.Location = new System.Drawing.Point(3, 152);
+            this.lunchRecipesButton.Name = "lunchRecipesButton";
+            this.lunchRecipesButton.Size = new System.Drawing.Size(212, 23);
+            this.lunchRecipesButton.TabIndex = 0;
+            this.lunchRecipesButton.Text = "Lunch";
+            this.lunchRecipesButton.UseVisualStyleBackColor = true;
+            this.lunchRecipesButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
             // breakfastRecipesGroupBox
             // 
@@ -170,25 +170,27 @@ namespace recipe_manager
             this.breakfastRecipesButton.TabIndex = 0;
             this.breakfastRecipesButton.Text = "Breakfast";
             this.breakfastRecipesButton.UseVisualStyleBackColor = true;
+            this.breakfastRecipesButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
-            // lunchRecipesGroupBox
+            // allRecipesGroupBox
             // 
-            this.lunchRecipesGroupBox.Controls.Add(this.lunchRecipesButton);
-            this.lunchRecipesGroupBox.Location = new System.Drawing.Point(636, 61);
-            this.lunchRecipesGroupBox.Name = "lunchRecipesGroupBox";
-            this.lunchRecipesGroupBox.Size = new System.Drawing.Size(218, 178);
-            this.lunchRecipesGroupBox.TabIndex = 2;
-            this.lunchRecipesGroupBox.TabStop = false;
+            this.allRecipesGroupBox.Controls.Add(this.allRecipesButton);
+            this.allRecipesGroupBox.Location = new System.Drawing.Point(6, 61);
+            this.allRecipesGroupBox.Name = "allRecipesGroupBox";
+            this.allRecipesGroupBox.Size = new System.Drawing.Size(218, 178);
+            this.allRecipesGroupBox.TabIndex = 0;
+            this.allRecipesGroupBox.TabStop = false;
             // 
-            // lunchRecipesButton
+            // allRecipesButton
             // 
-            this.lunchRecipesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lunchRecipesButton.Location = new System.Drawing.Point(3, 152);
-            this.lunchRecipesButton.Name = "lunchRecipesButton";
-            this.lunchRecipesButton.Size = new System.Drawing.Size(212, 23);
-            this.lunchRecipesButton.TabIndex = 0;
-            this.lunchRecipesButton.Text = "Lunch";
-            this.lunchRecipesButton.UseVisualStyleBackColor = true;
+            this.allRecipesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.allRecipesButton.Location = new System.Drawing.Point(3, 152);
+            this.allRecipesButton.Name = "allRecipesButton";
+            this.allRecipesButton.Size = new System.Drawing.Size(212, 23);
+            this.allRecipesButton.TabIndex = 0;
+            this.allRecipesButton.Text = "All Recipes";
+            this.allRecipesButton.UseVisualStyleBackColor = true;
+            this.allRecipesButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
             // RecipeManagerForm
             // 
@@ -205,9 +207,9 @@ namespace recipe_manager
             this.Text = "Recipe Manager";
             this.sideBarPanel.ResumeLayout(false);
             this.homePanel.ResumeLayout(false);
-            this.allRecipesGroupBox.ResumeLayout(false);
-            this.breakfastRecipesGroupBox.ResumeLayout(false);
             this.lunchRecipesGroupBox.ResumeLayout(false);
+            this.breakfastRecipesGroupBox.ResumeLayout(false);
+            this.allRecipesGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
