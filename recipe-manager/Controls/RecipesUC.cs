@@ -19,9 +19,9 @@ namespace recipe_manager.Controls
 
         private Panel updatePanel = new Panel();
         private DataAccess db = null;
-        private string recipeSearchType = "";
+        private RecipeType recipeSearchType = 0;
 
-        public RecipesUC(DataAccess db, string recipeSearchType)
+        public RecipesUC(DataAccess db, RecipeType recipeSearchType)
         {
             this.db = db;
             this.recipeSearchType = recipeSearchType;
@@ -41,9 +41,9 @@ namespace recipe_manager.Controls
 
         private void SetGridDatasource()
         {
-            if (recipeSearchType != "All Recipes")
+            if (recipeSearchType != RecipeType.All)
             {
-                recipesDataGridView.DataSource = db.SearchRecipes("\\b", recipeSearchType);
+                recipesDataGridView.DataSource = db.SearchRecipes("", recipeSearchType);
             }
             else
             {
@@ -150,7 +150,7 @@ namespace recipe_manager.Controls
                 //var filtered = db.ListRecipes().Where(x => x.RecipeName.Contains(searchTextBox.Text)).ToList();
                 //recipesDataGridView.DataSource = filtered;
 
-                recipesDataGridView.DataSource = db.SearchRecipes(searchTextBox.Text, "");
+                recipesDataGridView.DataSource = db.SearchRecipes(searchTextBox.Text, recipeSearchType);
             }
         }
 

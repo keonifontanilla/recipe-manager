@@ -22,11 +22,26 @@ namespace recipe_manager
             }
         }
 
-        public List<RecipesModel> SearchRecipes(string RecipeName, string RecipeType)
+        public List<RecipesModel> SearchRecipes(string recipeName, RecipeType rt)
         {
+            string sql;
+
+            switch (rt)
+            {
+                case RecipeType.Breakfast:
+                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Breakfast';";
+                    break;
+                case RecipeType.Lunch:
+                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Lunch';";
+                    break;
+                default:
+                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName";
+                    break;
+            }
+
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
             {
-                return connection.Query<RecipesModel>("dbo.spRecipes_SearchRecipes @RecipeName, @RecipeType", new { RecipeName = $"%{RecipeName}%", RecipeType = RecipeType }).ToList();
+                return connection.Query<RecipesModel>(sql, new { RecipeName = $"%{recipeName}%" }).ToList();
             }
         }
 

@@ -72,13 +72,34 @@ namespace recipe_manager
             RemoveOldRef(allRecipesPanel, "RecipesUC");
 
             var senderButton = (Button)sender;
-            var recipesUC = new RecipesUC(db, senderButton.Text);
+            var recipesUC = new RecipesUC(db, GetRecipeType(senderButton.Text));
             allRecipesPanel.Controls.Add(recipesUC);
 
             homePanel.Hide();
             addRecipePanel.Hide();
             allRecipesPanel.Show();
         }
+
+        private RecipeType GetRecipeType(string recipeType)
+        {
+            RecipeType rt;
+
+            switch(recipeType)
+            {
+                case "Breakfast":
+                    rt = RecipeType.Breakfast;
+                    break;
+                case "Lunch":
+                    rt = RecipeType.Lunch;
+                    break;
+                default:
+                    rt = RecipeType.All;
+                    break;
+            }
+
+            return rt;
+        }
+
 
         private void RemoveOldRef(Panel panel, string name)
         {
