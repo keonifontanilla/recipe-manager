@@ -42,11 +42,20 @@ namespace recipe_manager
             this.breakfastRecipesButton = new System.Windows.Forms.Button();
             this.allRecipesGroupBox = new System.Windows.Forms.GroupBox();
             this.allRecipesButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dinnerButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dessertsButton = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.drinksButton = new System.Windows.Forms.Button();
             this.sideBarPanel.SuspendLayout();
             this.homePanel.SuspendLayout();
             this.lunchRecipesGroupBox.SuspendLayout();
             this.breakfastRecipesGroupBox.SuspendLayout();
             this.allRecipesGroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBarPanel
@@ -123,6 +132,9 @@ namespace recipe_manager
             // homePanel
             // 
             this.homePanel.AutoScroll = true;
+            this.homePanel.Controls.Add(this.groupBox3);
+            this.homePanel.Controls.Add(this.groupBox2);
+            this.homePanel.Controls.Add(this.groupBox1);
             this.homePanel.Controls.Add(this.lunchRecipesGroupBox);
             this.homePanel.Controls.Add(this.breakfastRecipesGroupBox);
             this.homePanel.Controls.Add(this.allRecipesGroupBox);
@@ -192,6 +204,66 @@ namespace recipe_manager
             this.allRecipesButton.UseVisualStyleBackColor = true;
             this.allRecipesButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dinnerButton);
+            this.groupBox1.Location = new System.Drawing.Point(6, 346);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(218, 178);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            // 
+            // dinnerButton
+            // 
+            this.dinnerButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dinnerButton.Location = new System.Drawing.Point(3, 152);
+            this.dinnerButton.Name = "dinnerButton";
+            this.dinnerButton.Size = new System.Drawing.Size(212, 23);
+            this.dinnerButton.TabIndex = 0;
+            this.dinnerButton.Text = "Dinner";
+            this.dinnerButton.UseVisualStyleBackColor = true;
+            this.dinnerButton.Click += new System.EventHandler(this.recipesButton_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dessertsButton);
+            this.groupBox2.Location = new System.Drawing.Point(325, 346);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(218, 178);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            // 
+            // dessertsButton
+            // 
+            this.dessertsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dessertsButton.Location = new System.Drawing.Point(3, 152);
+            this.dessertsButton.Name = "dessertsButton";
+            this.dessertsButton.Size = new System.Drawing.Size(212, 23);
+            this.dessertsButton.TabIndex = 0;
+            this.dessertsButton.Text = "Desserts";
+            this.dessertsButton.UseVisualStyleBackColor = true;
+            this.dessertsButton.Click += new System.EventHandler(this.recipesButton_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.drinksButton);
+            this.groupBox3.Location = new System.Drawing.Point(636, 346);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(218, 178);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            // 
+            // drinksButton
+            // 
+            this.drinksButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.drinksButton.Location = new System.Drawing.Point(3, 152);
+            this.drinksButton.Name = "drinksButton";
+            this.drinksButton.Size = new System.Drawing.Size(212, 23);
+            this.drinksButton.TabIndex = 0;
+            this.drinksButton.Text = "Drinks";
+            this.drinksButton.UseVisualStyleBackColor = true;
+            this.drinksButton.Click += new System.EventHandler(this.recipesButton_Click);
+            // 
             // RecipeManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,6 +282,9 @@ namespace recipe_manager
             this.lunchRecipesGroupBox.ResumeLayout(false);
             this.breakfastRecipesGroupBox.ResumeLayout(false);
             this.allRecipesGroupBox.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -229,6 +304,12 @@ namespace recipe_manager
         private System.Windows.Forms.Button lunchRecipesButton;
         private System.Windows.Forms.GroupBox breakfastRecipesGroupBox;
         private System.Windows.Forms.Button breakfastRecipesButton;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button drinksButton;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button dessertsButton;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button dinnerButton;
     }
 }
 

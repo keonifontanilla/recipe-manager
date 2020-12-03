@@ -34,6 +34,15 @@ namespace recipe_manager
                 case RecipeType.Lunch:
                     sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Lunch';";
                     break;
+                case RecipeType.Dinner:
+                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Dinner';";
+                    break;
+                case RecipeType.Dessert:
+                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Dessert';";
+                    break;
+                case RecipeType.Drink:
+                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Drink';";
+                    break;
                 default:
                     sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName";
                     break;

@@ -55,18 +55,6 @@ namespace recipe_manager
             homePanel.Show();
         }
 
-        //private void allRecipesButton_Click(object sender, EventArgs e)
-        //{
-        //    RemoveOldRef(allRecipesPanel, "RecipesUC");
-
-        //    var recipesUC = new RecipesUC(db);
-        //    allRecipesPanel.Controls.Add(recipesUC);
-
-        //    homePanel.Hide();
-        //    addRecipePanel.Hide();
-        //    allRecipesPanel.Show();
-        //}
-
         private void recipesButton_Click(object sender, EventArgs e)
         {
             RemoveOldRef(allRecipesPanel, "RecipesUC");
@@ -91,6 +79,15 @@ namespace recipe_manager
                     break;
                 case "Lunch":
                     rt = RecipeType.Lunch;
+                    break;
+                case "Dinner":
+                    rt = RecipeType.Dinner;
+                    break;
+                case "Desserts":
+                    rt = RecipeType.Dessert;
+                    break;
+                case "Drinks":
+                    rt = RecipeType.Drink;
                     break;
                 default:
                     rt = RecipeType.All;

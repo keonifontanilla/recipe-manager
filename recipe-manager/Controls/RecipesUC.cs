@@ -131,35 +131,12 @@ namespace recipe_manager.Controls
 
         private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                //foreach(DataGridViewRow row in recipesDataGridView.Rows)
-                //{ 
-                //    if (row.Cells != null && row.Cells["RecipeName"].Value.ToString().Contains(searchTextBox.Text))
-                //    {
-                //        recipesDataGridView.CurrentRow.Selected = false;
-                //        row.Selected = true;
-                //        row.Visible = true;
-                //    }
-                //    else
-                //    {
-                //        row.Visible = false;
-                //    }
-                //}
-
-                //var filtered = db.ListRecipes().Where(x => x.RecipeName.Contains(searchTextBox.Text)).ToList();
-                //recipesDataGridView.DataSource = filtered;
-
-                recipesDataGridView.DataSource = db.SearchRecipes(searchTextBox.Text, recipeSearchType);
-            }
+            if (e.KeyCode == Keys.Enter) recipesDataGridView.DataSource = db.SearchRecipes(searchTextBox.Text, recipeSearchType);
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (searchTextBox.Text == "")
-            {
-                SetGridDatasource();
-            }
+            if (searchTextBox.Text == "") SetGridDatasource();
         }
     }
 }
