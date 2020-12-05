@@ -17,6 +17,7 @@ namespace recipe_manager
         private Panel allRecipesPanel = new Panel();
 
         private DataAccess db = new DataAccess();
+        private bool categoriesClicked = false;
 
         public RecipeManagerForm()
         {
@@ -25,6 +26,7 @@ namespace recipe_manager
             InitializeAllRecipes();
 
             topBarPanel.Controls.Add(new TopBar());
+            SetSideButtonColor(homeButton);
         }
 
         private void InitializeAddRecipes()
@@ -43,14 +45,29 @@ namespace recipe_manager
             this.Controls.Add(allRecipesPanel);
         }
 
+        private void SetSideButtonColor(Object sender)
+        {
+            var defaultColor = Color.FromArgb(245, 243, 244);
+            var btnSender = (Button)sender;
+
+            homeButton.BackColor = defaultColor;
+            allRecipesButton.BackColor = defaultColor;
+            categoriesButton.BackColor = defaultColor;
+            addRecipeButton.BackColor = defaultColor;
+
+            btnSender.BackColor = Color.LightGray;
+        }
+
         private void addRecipeButton_Click(object sender, EventArgs e)
         {
+            SetSideButtonColor(sender);
             homePanel.Hide();
             addRecipePanel.Show();
         }
 
         private void homeButton_Click(object sender, EventArgs e)
         {
+            SetSideButtonColor(sender);
             addRecipePanel.Hide();
             homePanel.Show();
         }
@@ -107,5 +124,21 @@ namespace recipe_manager
                 oldRef.Dispose();
             }
         }
+
+        private void categoriesButton_Click(object sender, EventArgs e)
+        {
+            SetSideButtonColor(sender);
+
+            if (!categoriesClicked)
+            {
+                categoriesSubPanel.Show();
+                categoriesClicked = true;
+            }
+            else
+            {
+                categoriesSubPanel.Hide();
+                categoriesClicked = false;
+            }
+        }   
     }
 }
