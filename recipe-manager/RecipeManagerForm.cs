@@ -77,7 +77,10 @@ namespace recipe_manager
             RemoveOldRef(allRecipesPanel, "RecipesUC");
 
             var senderButton = (Button)sender;
-            var recipesUC = new RecipesUC(db, GetRecipeType(senderButton.Text));
+            var recipeTypeLabel = senderButton.Parent.Controls.OfType<Label>().FirstOrDefault();
+            var recipeType = senderButton.Parent is Panel ? senderButton.Text : recipeTypeLabel.Text; 
+
+            var recipesUC = new RecipesUC(db, GetRecipeType(recipeType));
             allRecipesPanel.Controls.Add(recipesUC);
 
             homePanel.Hide();
