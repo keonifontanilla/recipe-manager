@@ -61,7 +61,7 @@ namespace recipe_manager.Controls
 
         private void InitializeRecipesComboBox()
         {
-            typeComboBox.DataSource = new List<string> { "Any", "Breakfast", "Lunch", "Dinner", "Dessert", "Drink" };
+            typeComboBox.DataSource = new List<string> { "Any", "Breakfast", "Main Course", "Side Dish", "Dessert", "Drink" };
         }
 
         private void FillRecipesModel(RecipesModel rm)

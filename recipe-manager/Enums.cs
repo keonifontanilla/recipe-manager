@@ -11,8 +11,8 @@ namespace recipe_manager
         All,
         Any,
         Breakfast,
-        Lunch,
-        Dinner,
+        Main,
+        Side,
         Dessert,
         Drink
     }

@@ -35,8 +35,8 @@ namespace recipe_manager
             this.categoriesSubPanel = new System.Windows.Forms.Panel();
             this.drinksSideButton = new System.Windows.Forms.Button();
             this.dessertsSideButton = new System.Windows.Forms.Button();
-            this.dinnerSideButton = new System.Windows.Forms.Button();
-            this.lunchSideButton = new System.Windows.Forms.Button();
+            this.sideDishesSideButton = new System.Windows.Forms.Button();
+            this.mainSideButton = new System.Windows.Forms.Button();
             this.breakfastSideButton = new System.Windows.Forms.Button();
             this.allRecipesSideButton = new System.Windows.Forms.Button();
             this.categoriesButton = new System.Windows.Forms.Button();
@@ -47,30 +47,30 @@ namespace recipe_manager
             this.homePanel = new System.Windows.Forms.Panel();
             this.drinksRecipeGroupBox = new System.Windows.Forms.GroupBox();
             this.drinksButton = new System.Windows.Forms.Button();
+            this.drinksLabel = new System.Windows.Forms.Label();
             this.dessertsRecipeGroupBox = new System.Windows.Forms.GroupBox();
             this.dessertsButton = new System.Windows.Forms.Button();
-            this.dinnerRecipesGroupBox = new System.Windows.Forms.GroupBox();
-            this.dinnerButton = new System.Windows.Forms.Button();
-            this.lunchRecipesGroupBox = new System.Windows.Forms.GroupBox();
-            this.lunchRecipesButton = new System.Windows.Forms.Button();
+            this.dessertsLabel = new System.Windows.Forms.Label();
+            this.sideRecipesGroupBox = new System.Windows.Forms.GroupBox();
+            this.sideDishesButton = new System.Windows.Forms.Button();
+            this.sideDishesLabel = new System.Windows.Forms.Label();
+            this.mainRecipesGroupBox = new System.Windows.Forms.GroupBox();
+            this.mainRecipesButton = new System.Windows.Forms.Button();
+            this.mainLabel = new System.Windows.Forms.Label();
             this.breakfastRecipesGroupBox = new System.Windows.Forms.GroupBox();
             this.breakfastRecipesButton = new System.Windows.Forms.Button();
             this.breakfastLabel = new System.Windows.Forms.Label();
             this.allRecipesGroupBox = new System.Windows.Forms.GroupBox();
             this.allRecipesButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.lunchLabel = new System.Windows.Forms.Label();
-            this.dinnerLabel = new System.Windows.Forms.Label();
-            this.dessertsLabel = new System.Windows.Forms.Label();
-            this.drinksLabel = new System.Windows.Forms.Label();
             this.sideBarPanel.SuspendLayout();
             this.categoriesSubPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
             this.homePanel.SuspendLayout();
             this.drinksRecipeGroupBox.SuspendLayout();
             this.dessertsRecipeGroupBox.SuspendLayout();
-            this.dinnerRecipesGroupBox.SuspendLayout();
-            this.lunchRecipesGroupBox.SuspendLayout();
+            this.sideRecipesGroupBox.SuspendLayout();
+            this.mainRecipesGroupBox.SuspendLayout();
             this.breakfastRecipesGroupBox.SuspendLayout();
             this.allRecipesGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -110,8 +110,8 @@ namespace recipe_manager
             this.categoriesSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.categoriesSubPanel.Controls.Add(this.drinksSideButton);
             this.categoriesSubPanel.Controls.Add(this.dessertsSideButton);
-            this.categoriesSubPanel.Controls.Add(this.dinnerSideButton);
-            this.categoriesSubPanel.Controls.Add(this.lunchSideButton);
+            this.categoriesSubPanel.Controls.Add(this.sideDishesSideButton);
+            this.categoriesSubPanel.Controls.Add(this.mainSideButton);
             this.categoriesSubPanel.Controls.Add(this.breakfastSideButton);
             this.categoriesSubPanel.Controls.Add(this.allRecipesSideButton);
             this.categoriesSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -153,37 +153,37 @@ namespace recipe_manager
             this.dessertsSideButton.UseVisualStyleBackColor = true;
             this.dessertsSideButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
-            // dinnerSideButton
+            // sideDishesSideButton
             // 
-            this.dinnerSideButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dinnerSideButton.FlatAppearance.BorderSize = 0;
-            this.dinnerSideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dinnerSideButton.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerSideButton.Location = new System.Drawing.Point(0, 69);
-            this.dinnerSideButton.Name = "dinnerSideButton";
-            this.dinnerSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.dinnerSideButton.Size = new System.Drawing.Size(225, 23);
-            this.dinnerSideButton.TabIndex = 8;
-            this.dinnerSideButton.Text = "Dinner";
-            this.dinnerSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dinnerSideButton.UseVisualStyleBackColor = true;
-            this.dinnerSideButton.Click += new System.EventHandler(this.recipesButton_Click);
+            this.sideDishesSideButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sideDishesSideButton.FlatAppearance.BorderSize = 0;
+            this.sideDishesSideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sideDishesSideButton.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sideDishesSideButton.Location = new System.Drawing.Point(0, 69);
+            this.sideDishesSideButton.Name = "sideDishesSideButton";
+            this.sideDishesSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.sideDishesSideButton.Size = new System.Drawing.Size(225, 23);
+            this.sideDishesSideButton.TabIndex = 8;
+            this.sideDishesSideButton.Text = "Side Dishes";
+            this.sideDishesSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sideDishesSideButton.UseVisualStyleBackColor = true;
+            this.sideDishesSideButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
-            // lunchSideButton
+            // mainSideButton
             // 
-            this.lunchSideButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lunchSideButton.FlatAppearance.BorderSize = 0;
-            this.lunchSideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lunchSideButton.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchSideButton.Location = new System.Drawing.Point(0, 46);
-            this.lunchSideButton.Name = "lunchSideButton";
-            this.lunchSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.lunchSideButton.Size = new System.Drawing.Size(225, 23);
-            this.lunchSideButton.TabIndex = 7;
-            this.lunchSideButton.Text = "Lunch";
-            this.lunchSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lunchSideButton.UseVisualStyleBackColor = true;
-            this.lunchSideButton.Click += new System.EventHandler(this.recipesButton_Click);
+            this.mainSideButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mainSideButton.FlatAppearance.BorderSize = 0;
+            this.mainSideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mainSideButton.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainSideButton.Location = new System.Drawing.Point(0, 46);
+            this.mainSideButton.Name = "mainSideButton";
+            this.mainSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.mainSideButton.Size = new System.Drawing.Size(225, 23);
+            this.mainSideButton.TabIndex = 7;
+            this.mainSideButton.Text = "Main Course";
+            this.mainSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mainSideButton.UseVisualStyleBackColor = true;
+            this.mainSideButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
             // breakfastSideButton
             // 
@@ -283,8 +283,8 @@ namespace recipe_manager
             this.homePanel.AutoScroll = true;
             this.homePanel.Controls.Add(this.drinksRecipeGroupBox);
             this.homePanel.Controls.Add(this.dessertsRecipeGroupBox);
-            this.homePanel.Controls.Add(this.dinnerRecipesGroupBox);
-            this.homePanel.Controls.Add(this.lunchRecipesGroupBox);
+            this.homePanel.Controls.Add(this.sideRecipesGroupBox);
+            this.homePanel.Controls.Add(this.mainRecipesGroupBox);
             this.homePanel.Controls.Add(this.breakfastRecipesGroupBox);
             this.homePanel.Controls.Add(this.allRecipesGroupBox);
             this.homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -314,6 +314,17 @@ namespace recipe_manager
             this.drinksButton.UseVisualStyleBackColor = true;
             this.drinksButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
+            // drinksLabel
+            // 
+            this.drinksLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.drinksLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drinksLabel.Location = new System.Drawing.Point(3, 152);
+            this.drinksLabel.Name = "drinksLabel";
+            this.drinksLabel.Size = new System.Drawing.Size(212, 23);
+            this.drinksLabel.TabIndex = 5;
+            this.drinksLabel.Text = "Drinks";
+            this.drinksLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // dessertsRecipeGroupBox
             // 
             this.dessertsRecipeGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
@@ -335,47 +346,80 @@ namespace recipe_manager
             this.dessertsButton.UseVisualStyleBackColor = true;
             this.dessertsButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
-            // dinnerRecipesGroupBox
+            // dessertsLabel
             // 
-            this.dinnerRecipesGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.dinnerRecipesGroupBox.Controls.Add(this.dinnerButton);
-            this.dinnerRecipesGroupBox.Controls.Add(this.dinnerLabel);
-            this.dinnerRecipesGroupBox.Location = new System.Drawing.Point(6, 346);
-            this.dinnerRecipesGroupBox.Name = "dinnerRecipesGroupBox";
-            this.dinnerRecipesGroupBox.Size = new System.Drawing.Size(218, 178);
-            this.dinnerRecipesGroupBox.TabIndex = 3;
-            this.dinnerRecipesGroupBox.TabStop = false;
+            this.dessertsLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dessertsLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dessertsLabel.Location = new System.Drawing.Point(3, 152);
+            this.dessertsLabel.Name = "dessertsLabel";
+            this.dessertsLabel.Size = new System.Drawing.Size(212, 23);
+            this.dessertsLabel.TabIndex = 4;
+            this.dessertsLabel.Text = "Desserts";
+            this.dessertsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dinnerButton
+            // sideRecipesGroupBox
             // 
-            this.dinnerButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dinnerButton.Location = new System.Drawing.Point(3, 8);
-            this.dinnerButton.Name = "dinnerButton";
-            this.dinnerButton.Size = new System.Drawing.Size(212, 144);
-            this.dinnerButton.TabIndex = 0;
-            this.dinnerButton.UseVisualStyleBackColor = true;
-            this.dinnerButton.Click += new System.EventHandler(this.recipesButton_Click);
+            this.sideRecipesGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.sideRecipesGroupBox.Controls.Add(this.sideDishesButton);
+            this.sideRecipesGroupBox.Controls.Add(this.sideDishesLabel);
+            this.sideRecipesGroupBox.Location = new System.Drawing.Point(6, 346);
+            this.sideRecipesGroupBox.Name = "sideRecipesGroupBox";
+            this.sideRecipesGroupBox.Size = new System.Drawing.Size(218, 178);
+            this.sideRecipesGroupBox.TabIndex = 3;
+            this.sideRecipesGroupBox.TabStop = false;
             // 
-            // lunchRecipesGroupBox
+            // sideDishesButton
             // 
-            this.lunchRecipesGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.lunchRecipesGroupBox.Controls.Add(this.lunchRecipesButton);
-            this.lunchRecipesGroupBox.Controls.Add(this.lunchLabel);
-            this.lunchRecipesGroupBox.Location = new System.Drawing.Point(636, 61);
-            this.lunchRecipesGroupBox.Name = "lunchRecipesGroupBox";
-            this.lunchRecipesGroupBox.Size = new System.Drawing.Size(218, 178);
-            this.lunchRecipesGroupBox.TabIndex = 2;
-            this.lunchRecipesGroupBox.TabStop = false;
+            this.sideDishesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.sideDishesButton.Location = new System.Drawing.Point(3, 8);
+            this.sideDishesButton.Name = "sideDishesButton";
+            this.sideDishesButton.Size = new System.Drawing.Size(212, 144);
+            this.sideDishesButton.TabIndex = 0;
+            this.sideDishesButton.UseVisualStyleBackColor = true;
+            this.sideDishesButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
-            // lunchRecipesButton
+            // sideDishesLabel
             // 
-            this.lunchRecipesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lunchRecipesButton.Location = new System.Drawing.Point(3, 8);
-            this.lunchRecipesButton.Name = "lunchRecipesButton";
-            this.lunchRecipesButton.Size = new System.Drawing.Size(212, 144);
-            this.lunchRecipesButton.TabIndex = 0;
-            this.lunchRecipesButton.UseVisualStyleBackColor = true;
-            this.lunchRecipesButton.Click += new System.EventHandler(this.recipesButton_Click);
+            this.sideDishesLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.sideDishesLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sideDishesLabel.Location = new System.Drawing.Point(3, 152);
+            this.sideDishesLabel.Name = "sideDishesLabel";
+            this.sideDishesLabel.Size = new System.Drawing.Size(212, 23);
+            this.sideDishesLabel.TabIndex = 3;
+            this.sideDishesLabel.Text = "Side Dishes";
+            this.sideDishesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mainRecipesGroupBox
+            // 
+            this.mainRecipesGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.mainRecipesGroupBox.Controls.Add(this.mainRecipesButton);
+            this.mainRecipesGroupBox.Controls.Add(this.mainLabel);
+            this.mainRecipesGroupBox.Location = new System.Drawing.Point(636, 61);
+            this.mainRecipesGroupBox.Name = "mainRecipesGroupBox";
+            this.mainRecipesGroupBox.Size = new System.Drawing.Size(218, 178);
+            this.mainRecipesGroupBox.TabIndex = 2;
+            this.mainRecipesGroupBox.TabStop = false;
+            // 
+            // mainRecipesButton
+            // 
+            this.mainRecipesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mainRecipesButton.Location = new System.Drawing.Point(3, 8);
+            this.mainRecipesButton.Name = "mainRecipesButton";
+            this.mainRecipesButton.Size = new System.Drawing.Size(212, 144);
+            this.mainRecipesButton.TabIndex = 0;
+            this.mainRecipesButton.UseVisualStyleBackColor = true;
+            this.mainRecipesButton.Click += new System.EventHandler(this.recipesButton_Click);
+            // 
+            // mainLabel
+            // 
+            this.mainLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mainLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainLabel.Location = new System.Drawing.Point(3, 152);
+            this.mainLabel.Name = "mainLabel";
+            this.mainLabel.Size = new System.Drawing.Size(212, 23);
+            this.mainLabel.TabIndex = 2;
+            this.mainLabel.Text = "Main Course";
+            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // breakfastRecipesGroupBox
             // 
@@ -446,50 +490,6 @@ namespace recipe_manager
             this.label1.Text = "All Recipes";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lunchLabel
-            // 
-            this.lunchLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lunchLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchLabel.Location = new System.Drawing.Point(3, 152);
-            this.lunchLabel.Name = "lunchLabel";
-            this.lunchLabel.Size = new System.Drawing.Size(212, 23);
-            this.lunchLabel.TabIndex = 2;
-            this.lunchLabel.Text = "Lunch";
-            this.lunchLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dinnerLabel
-            // 
-            this.dinnerLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dinnerLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerLabel.Location = new System.Drawing.Point(3, 152);
-            this.dinnerLabel.Name = "dinnerLabel";
-            this.dinnerLabel.Size = new System.Drawing.Size(212, 23);
-            this.dinnerLabel.TabIndex = 3;
-            this.dinnerLabel.Text = "Dinner";
-            this.dinnerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dessertsLabel
-            // 
-            this.dessertsLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dessertsLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dessertsLabel.Location = new System.Drawing.Point(3, 152);
-            this.dessertsLabel.Name = "dessertsLabel";
-            this.dessertsLabel.Size = new System.Drawing.Size(212, 23);
-            this.dessertsLabel.TabIndex = 4;
-            this.dessertsLabel.Text = "Desserts";
-            this.dessertsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // drinksLabel
-            // 
-            this.drinksLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.drinksLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drinksLabel.Location = new System.Drawing.Point(3, 152);
-            this.drinksLabel.Name = "drinksLabel";
-            this.drinksLabel.Size = new System.Drawing.Size(212, 23);
-            this.drinksLabel.TabIndex = 5;
-            this.drinksLabel.Text = "Drinks";
-            this.drinksLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // RecipeManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,8 +509,8 @@ namespace recipe_manager
             this.homePanel.ResumeLayout(false);
             this.drinksRecipeGroupBox.ResumeLayout(false);
             this.dessertsRecipeGroupBox.ResumeLayout(false);
-            this.dinnerRecipesGroupBox.ResumeLayout(false);
-            this.lunchRecipesGroupBox.ResumeLayout(false);
+            this.sideRecipesGroupBox.ResumeLayout(false);
+            this.mainRecipesGroupBox.ResumeLayout(false);
             this.breakfastRecipesGroupBox.ResumeLayout(false);
             this.allRecipesGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -528,30 +528,30 @@ namespace recipe_manager
         private System.Windows.Forms.GroupBox allRecipesGroupBox;
         private System.Windows.Forms.Button allRecipesButton;
         private System.Windows.Forms.Button categoriesButton;
-        private System.Windows.Forms.GroupBox lunchRecipesGroupBox;
-        private System.Windows.Forms.Button lunchRecipesButton;
+        private System.Windows.Forms.GroupBox mainRecipesGroupBox;
+        private System.Windows.Forms.Button mainRecipesButton;
         private System.Windows.Forms.GroupBox breakfastRecipesGroupBox;
         private System.Windows.Forms.Button breakfastRecipesButton;
         private System.Windows.Forms.GroupBox drinksRecipeGroupBox;
         private System.Windows.Forms.Button drinksButton;
         private System.Windows.Forms.GroupBox dessertsRecipeGroupBox;
         private System.Windows.Forms.Button dessertsButton;
-        private System.Windows.Forms.GroupBox dinnerRecipesGroupBox;
-        private System.Windows.Forms.Button dinnerButton;
+        private System.Windows.Forms.GroupBox sideRecipesGroupBox;
+        private System.Windows.Forms.Button sideDishesButton;
         private System.Windows.Forms.Panel categoriesSubPanel;
         private System.Windows.Forms.Button allRecipesSideButton;
         private System.Windows.Forms.Button drinksSideButton;
         private System.Windows.Forms.Button dessertsSideButton;
-        private System.Windows.Forms.Button dinnerSideButton;
-        private System.Windows.Forms.Button lunchSideButton;
+        private System.Windows.Forms.Button sideDishesSideButton;
+        private System.Windows.Forms.Button mainSideButton;
         private System.Windows.Forms.Button breakfastSideButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label breakfastLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label drinksLabel;
         private System.Windows.Forms.Label dessertsLabel;
-        private System.Windows.Forms.Label dinnerLabel;
-        private System.Windows.Forms.Label lunchLabel;
+        private System.Windows.Forms.Label sideDishesLabel;
+        private System.Windows.Forms.Label mainLabel;
     }
 }
 

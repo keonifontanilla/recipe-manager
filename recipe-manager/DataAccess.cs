@@ -31,11 +31,11 @@ namespace recipe_manager
                 case RecipeType.Breakfast:
                     sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Breakfast';";
                     break;
-                case RecipeType.Lunch:
-                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Lunch';";
+                case RecipeType.Main:
+                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Main Course';";
                     break;
-                case RecipeType.Dinner:
-                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Dinner';";
+                case RecipeType.Side:
+                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Side Dish';";
                     break;
                 case RecipeType.Dessert:
                     sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Dessert';";

@@ -97,11 +97,11 @@ namespace recipe_manager
                 case "Breakfast":
                     rt = RecipeType.Breakfast;
                     break;
-                case "Lunch":
-                    rt = RecipeType.Lunch;
+                case "Main Course":
+                    rt = RecipeType.Main;
                     break;
-                case "Dinner":
-                    rt = RecipeType.Dinner;
+                case "Side Dishes":
+                    rt = RecipeType.Side;
                     break;
                 case "Desserts":
                     rt = RecipeType.Dessert;
