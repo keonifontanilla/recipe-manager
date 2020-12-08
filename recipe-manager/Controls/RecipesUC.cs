@@ -20,11 +20,13 @@ namespace recipe_manager.Controls
         private Panel updatePanel = new Panel();
         private DataAccess db = null;
         private RecipeType recipeSearchType = 0;
+        private bool saveFavorite = false;
 
-        public RecipesUC(DataAccess db, RecipeType recipeSearchType)
+        public RecipesUC(DataAccess db, RecipeType recipeSearchType, bool saveFavorite = false)
         {
             this.db = db;
             this.recipeSearchType = recipeSearchType;
+            this.saveFavorite = saveFavorite;
 
             InitializeComponent();
             InitializeRecipesGrid();
@@ -32,23 +34,25 @@ namespace recipe_manager.Controls
 
         private void InitializeRecipesGrid()
         {
-            SetGridDatasource();
+            recipesDataGridView.DataSource = SetGridDatasource();
 
             recipesDataGridView.Columns["RecipeInfo"].Visible = false;
             recipesDataGridView.Columns["RecipeId"].HeaderText = "Id";
             recipesDataGridView.Columns["RecipeId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
-        private void SetGridDatasource()
+        private List<RecipesModel> SetGridDatasource()
         {
             if (recipeSearchType != RecipeType.All)
             {
-                recipesDataGridView.DataSource = db.SearchRecipes("", recipeSearchType);
+                return db.SearchRecipes("", recipeSearchType);
             }
-            else
+            else if (saveFavorite)
             {
-                recipesDataGridView.DataSource = db.ListRecipes();
+                return db.ListFavoriteRecipes();
             }
+            
+            return db.ListRecipes();
         }
 
         private void viewButton_Click(object sender, EventArgs e)
@@ -118,12 +122,29 @@ namespace recipe_manager.Controls
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            if (!saveFavorite)
+            {
+                DeleteOrInsert(db.DeleteFullRecipe);
+            }
+            else
+            {
+                DeleteOrInsert(db.DeleteFavoriteRecipe);
+            }
+        }
+
+        private void favoriteButton_Click(object sender, EventArgs e)
+        {
+            DeleteOrInsert(db.InsertFavoriteRecipe);
+        }
+
+        private void DeleteOrInsert(Action<int> action)
+        {
             if (recipesDataGridView.CurrentRow != null)
             {
                 var rowIndex = recipesDataGridView.CurrentRow.Index;
                 var recipeId = (int)recipesDataGridView.Rows[rowIndex].Cells["RecipeId"].Value;
 
-                db.DeleteFullRecipe(recipeId);
+                action.Invoke(recipeId);
 
                 InitializeRecipesGrid();
             }
@@ -136,7 +157,7 @@ namespace recipe_manager.Controls
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (searchTextBox.Text == "") SetGridDatasource();
+            if (searchTextBox.Text == "") recipesDataGridView.DataSource = SetGridDatasource();
         }
     }
 }

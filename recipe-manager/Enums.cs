@@ -9,7 +9,6 @@ namespace recipe_manager
     public enum RecipeType
     {
         All,
-        Any,
         Breakfast,
         Main,
         Side,

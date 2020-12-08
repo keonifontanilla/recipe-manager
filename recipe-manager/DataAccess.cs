@@ -22,6 +22,16 @@ namespace recipe_manager
             }
         }
 
+        public List<RecipesModel> ListFavoriteRecipes()
+        {
+            var sql = "SELECT * FROM Recipes r INNER JOIN Favorites f ON r.RecipeId = f.RecipeId;";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
+            {
+                return connection.Query<RecipesModel>(sql).ToList();
+            }
+        }
+
         public List<RecipesModel> SearchRecipes(string recipeName, RecipeType rt)
         {
             string sql;
@@ -97,6 +107,16 @@ namespace recipe_manager
             }
         }
 
+        public void InsertFavoriteRecipe(int recipeId)
+        {
+            var sql = "INSERT INTO Favorites (RecipeId) VALUES (@recipeId);";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
+            {
+                connection.Execute(sql, new { RecipeId = @recipeId });
+            }
+        }
+
         public RecipesModel ViewRecipe(int recipeId, out List<IngredientsModel> ingredients, out List<InstructionsModel> instructions)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
@@ -133,6 +153,16 @@ namespace recipe_manager
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
             {
                 connection.Execute("dbo.spRecipes_DeleteFullRecipe @RecipeId", new { RecipeId = recipeId });
+            }
+        }
+
+        public void DeleteFavoriteRecipe(int recipeId)
+        {
+            var sql = "DELETE FROM Favorites WHERE RecipeId = @recipeId;";
+            
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
+            {
+                connection.Execute(sql, new { RecipeId = @recipeId });
             }
         }
     }

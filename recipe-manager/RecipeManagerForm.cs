@@ -78,9 +78,11 @@ namespace recipe_manager
 
             var senderButton = (Button)sender;
             var recipeTypeLabel = senderButton.Parent.Controls.OfType<Label>().FirstOrDefault();
-            var recipeType = senderButton.Parent is Panel ? senderButton.Text : recipeTypeLabel.Text; 
+            var recipeType = senderButton.Parent is Panel ? senderButton.Text : recipeTypeLabel.Text;
 
-            var recipesUC = new RecipesUC(db, GetRecipeType(recipeType));
+            var recipesUC = senderButton.Name != "favoritesButton" ? 
+                new RecipesUC(db, GetRecipeType(recipeType)) : new RecipesUC(db, RecipeType.All, saveFavorite: true);
+
             allRecipesPanel.Controls.Add(recipesUC);
 
             homePanel.Hide();
