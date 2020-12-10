@@ -119,5 +119,8 @@
   <ItemGroup>
     <Content Include="Images\breakfastImg.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="API\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

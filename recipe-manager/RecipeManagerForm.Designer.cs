@@ -31,6 +31,7 @@ namespace recipe_manager
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecipeManagerForm));
             this.sideBarPanel = new System.Windows.Forms.Panel();
+            this.favoritesButton = new System.Windows.Forms.Button();
             this.addRecipeButton = new System.Windows.Forms.Button();
             this.categoriesSubPanel = new System.Windows.Forms.Panel();
             this.drinksSideButton = new System.Windows.Forms.Button();
@@ -63,7 +64,7 @@ namespace recipe_manager
             this.allRecipesGroupBox = new System.Windows.Forms.GroupBox();
             this.allRecipesButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.favoritesButton = new System.Windows.Forms.Button();
+            this.searchAPIButton = new System.Windows.Forms.Button();
             this.sideBarPanel.SuspendLayout();
             this.categoriesSubPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
@@ -79,6 +80,7 @@ namespace recipe_manager
             // sideBarPanel
             // 
             this.sideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.sideBarPanel.Controls.Add(this.searchAPIButton);
             this.sideBarPanel.Controls.Add(this.favoritesButton);
             this.sideBarPanel.Controls.Add(this.addRecipeButton);
             this.sideBarPanel.Controls.Add(this.categoriesSubPanel);
@@ -90,6 +92,22 @@ namespace recipe_manager
             this.sideBarPanel.Name = "sideBarPanel";
             this.sideBarPanel.Size = new System.Drawing.Size(225, 649);
             this.sideBarPanel.TabIndex = 0;
+            // 
+            // favoritesButton
+            // 
+            this.favoritesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.favoritesButton.FlatAppearance.BorderSize = 0;
+            this.favoritesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.favoritesButton.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.favoritesButton.Location = new System.Drawing.Point(0, 492);
+            this.favoritesButton.Name = "favoritesButton";
+            this.favoritesButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.favoritesButton.Size = new System.Drawing.Size(225, 60);
+            this.favoritesButton.TabIndex = 5;
+            this.favoritesButton.Text = "Favorites";
+            this.favoritesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.favoritesButton.UseVisualStyleBackColor = true;
+            this.favoritesButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
             // addRecipeButton
             // 
@@ -492,21 +510,21 @@ namespace recipe_manager
             this.label1.Text = "All Recipes";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // favoritesButton
+            // searchAPIButton
             // 
-            this.favoritesButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.favoritesButton.FlatAppearance.BorderSize = 0;
-            this.favoritesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.favoritesButton.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.favoritesButton.Location = new System.Drawing.Point(0, 492);
-            this.favoritesButton.Name = "favoritesButton";
-            this.favoritesButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.favoritesButton.Size = new System.Drawing.Size(225, 60);
-            this.favoritesButton.TabIndex = 5;
-            this.favoritesButton.Text = "Favorites";
-            this.favoritesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.favoritesButton.UseVisualStyleBackColor = true;
-            this.favoritesButton.Click += new System.EventHandler(this.recipesButton_Click);
+            this.searchAPIButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchAPIButton.FlatAppearance.BorderSize = 0;
+            this.searchAPIButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchAPIButton.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchAPIButton.Location = new System.Drawing.Point(0, 552);
+            this.searchAPIButton.Name = "searchAPIButton";
+            this.searchAPIButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.searchAPIButton.Size = new System.Drawing.Size(225, 60);
+            this.searchAPIButton.TabIndex = 6;
+            this.searchAPIButton.Text = "Search API";
+            this.searchAPIButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.searchAPIButton.UseVisualStyleBackColor = true;
+            this.searchAPIButton.Click += new System.EventHandler(this.searchAPIButton_Click);
             // 
             // RecipeManagerForm
             // 
@@ -571,6 +589,7 @@ namespace recipe_manager
         private System.Windows.Forms.Label sideDishesLabel;
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button favoritesButton;
+        private System.Windows.Forms.Button searchAPIButton;
     }
 }
 

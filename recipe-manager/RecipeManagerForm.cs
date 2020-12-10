@@ -15,6 +15,7 @@ namespace recipe_manager
     {
         private Panel addRecipePanel = new Panel();
         private Panel allRecipesPanel = new Panel();
+        private Panel apiRecipesPanel = new Panel();
 
         private DataAccess db = new DataAccess();
         private bool categoriesClicked = false;
@@ -24,6 +25,7 @@ namespace recipe_manager
             InitializeComponent();
             InitializeAddRecipes();
             InitializeAllRecipes();
+            InitializeApiRecipes();
 
             topBarPanel.Controls.Add(new TopBar());
             SetSideButtonColor(homeButton);
@@ -45,6 +47,14 @@ namespace recipe_manager
             this.Controls.Add(allRecipesPanel);
         }
 
+        private void InitializeApiRecipes()
+        {
+            apiRecipesPanel.Size = homePanel.Size;
+            apiRecipesPanel.Location = homePanel.Location;
+
+            this.Controls.Add(apiRecipesPanel);
+        }
+
         private void SetSideButtonColor(Object sender)
         {
             var defaultColor = Color.FromArgb(245, 243, 244);
@@ -54,6 +64,7 @@ namespace recipe_manager
             allRecipesButton.BackColor = defaultColor;
             categoriesButton.BackColor = defaultColor;
             addRecipeButton.BackColor = defaultColor;
+            searchAPIButton.BackColor = defaultColor;
 
             btnSender.BackColor = Color.LightGray;
         }
@@ -144,6 +155,15 @@ namespace recipe_manager
                 categoriesSubPanel.Hide();
                 categoriesClicked = false;
             }
-        }   
+        }
+
+        private void searchAPIButton_Click(object sender, EventArgs e)
+        {
+            SetSideButtonColor(sender);
+            homePanel.Hide();
+            addRecipePanel.Hide();
+            allRecipesPanel.Hide();
+            apiRecipesPanel.Show();
+        }
     }
 }
