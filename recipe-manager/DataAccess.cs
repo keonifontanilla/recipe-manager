@@ -34,33 +34,20 @@ namespace recipe_manager
 
         public List<RecipesModel> SearchRecipes(string recipeName, RecipeType rt)
         {
-            string sql;
+            var recipeType = rt.ToString();
 
-            switch (rt)
+            if (recipeType == RecipeType.Main.ToString())
             {
-                case RecipeType.Breakfast:
-                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Breakfast';";
-                    break;
-                case RecipeType.Main:
-                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Main Course';";
-                    break;
-                case RecipeType.Side:
-                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Side Dish';";
-                    break;
-                case RecipeType.Dessert:
-                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Dessert';";
-                    break;
-                case RecipeType.Drink:
-                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName AND RecipeType = 'Drink';";
-                    break;
-                default:
-                    sql = $"SELECT * FROM Recipes WHERE RecipeName LIKE @recipeName";
-                    break;
+                recipeType = "Main Course";
             }
+            else if (recipeType == RecipeType.Side.ToString())
+            {
+                recipeType = "Side Dish";
+            }    
 
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
             {
-                return connection.Query<RecipesModel>(sql, new { RecipeName = $"%{recipeName}%" }).ToList();
+                return connection.Query<RecipesModel>("dbo.spRecipes_SearchRecipes @RecipeName, @RecipeType", new { RecipeName = $"%{recipeName}%", RecipeType = recipeType }).ToList();
             }
         }
 
