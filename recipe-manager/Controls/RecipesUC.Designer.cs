@@ -101,6 +101,7 @@ namespace recipe_manager.Controls
             this.instructionsTextBox.Multiline = true;
             this.instructionsTextBox.Name = "instructionsTextBox";
             this.instructionsTextBox.ReadOnly = true;
+            this.instructionsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.instructionsTextBox.Size = new System.Drawing.Size(363, 465);
             this.instructionsTextBox.TabIndex = 14;
             // 
@@ -121,6 +122,7 @@ namespace recipe_manager.Controls
             this.ingredientsTextBox.Multiline = true;
             this.ingredientsTextBox.Name = "ingredientsTextBox";
             this.ingredientsTextBox.ReadOnly = true;
+            this.ingredientsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ingredientsTextBox.Size = new System.Drawing.Size(363, 201);
             this.ingredientsTextBox.TabIndex = 12;
             // 
@@ -161,6 +163,7 @@ namespace recipe_manager.Controls
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ReadOnly = true;
+            this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.descriptionTextBox.Size = new System.Drawing.Size(363, 188);
             this.descriptionTextBox.TabIndex = 5;
             // 
