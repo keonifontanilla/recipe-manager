@@ -23,7 +23,7 @@ namespace recipe_manager.Controls
         private async void apiSearchButton_Click(object sender, EventArgs e)
         {
             var searchTerm = apiSearchTextBox.Text;
-            var recipes = await RecipeProcessor.LoadRecipes(searchTerm);
+            var recipes = await ApiRecipeProcessor.LoadRecipes(searchTerm);
 
             apiRecipesDataGridView.DataSource = recipes;
             apiRecipesDataGridView.AutoResizeColumns();

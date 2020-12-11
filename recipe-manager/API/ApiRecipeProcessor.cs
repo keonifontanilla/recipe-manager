@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace recipe_manager.API
 {
-    public class RecipeProcessor
+    public class ApiRecipeProcessor
     {
         public static async Task<List<ApiRecipeModel>> LoadRecipes(string searchTerm)
         {
