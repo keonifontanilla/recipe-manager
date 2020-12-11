@@ -36,9 +36,15 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,11 +56,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ApiHelper.cs" />
+    <Compile Include="API\ApiRecipeModel.cs" />
+    <Compile Include="API\ApiRecipeResultModel.cs" />
+    <Compile Include="API\RecipeProcessor.cs" />
     <Compile Include="Controls\AddRecipeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\AddRecipeUC.Designer.cs">
       <DependentUpon>AddRecipeUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ApiRecipeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ApiRecipeUC.Designer.cs">
+      <DependentUpon>ApiRecipeUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\RecipesUC.cs">
       <SubType>UserControl</SubType>
@@ -84,6 +100,9 @@
     <EmbeddedResource Include="Controls\AddRecipeUC.resx">
       <DependentUpon>AddRecipeUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ApiRecipeUC.resx">
+      <DependentUpon>ApiRecipeUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\RecipesUC.resx">
       <DependentUpon>RecipesUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +131,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="specialappsettings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -119,8 +141,6 @@
   <ItemGroup>
     <Content Include="Images\breakfastImg.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="API\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

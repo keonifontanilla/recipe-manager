@@ -1,4 +1,5 @@
-﻿using recipe_manager.Controls;
+﻿using recipe_manager.API;
+using recipe_manager.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +50,8 @@ namespace recipe_manager
 
         private void InitializeApiRecipes()
         {
+            ApiHelper.InitializeClient();
+
             apiRecipesPanel.Size = homePanel.Size;
             apiRecipesPanel.Location = homePanel.Location;
 
@@ -159,6 +162,9 @@ namespace recipe_manager
 
         private void searchAPIButton_Click(object sender, EventArgs e)
         {
+            RemoveOldRef(apiRecipesPanel, "ApiRecipeUC");
+            apiRecipesPanel.Controls.Add(new ApiRecipeUC());
+
             SetSideButtonColor(sender);
             homePanel.Hide();
             addRecipePanel.Hide();
