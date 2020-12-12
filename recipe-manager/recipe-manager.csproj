@@ -57,9 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\ApiHelper.cs" />
+    <Compile Include="API\ApiIngredientsModel.cs" />
+    <Compile Include="API\ApiInstructionsModel.cs" />
     <Compile Include="API\ApiRecipeModel.cs" />
     <Compile Include="API\ApiRecipeResultModel.cs" />
     <Compile Include="API\ApiRecipeProcessor.cs" />
+    <Compile Include="API\ApiStepsModel.cs" />
     <Compile Include="Controls\AddRecipeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>

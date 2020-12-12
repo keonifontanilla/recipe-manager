@@ -13,7 +13,7 @@ namespace recipe_manager.API
         public static async Task<List<ApiRecipeModel>> LoadRecipes(string searchTerm)
         {
             var apiKey = ConfigurationManager.AppSettings["APIKey"];
-            var url = $"recipes/complexSearch?apiKey={apiKey}&query={searchTerm}&addRecipeInformation=true";
+            var url = $"recipes/complexSearch?apiKey={apiKey}&query={searchTerm}&addRecipeInformation=true&addRecipeInformation=true&fillIngredients=true";
 
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {

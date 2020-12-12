@@ -18,8 +18,6 @@ namespace recipe_manager.Controls
         public ApiRecipeUC()
         {
             InitializeComponent();
-
-            apiRecipesDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
         }
 
         private async void apiSearchButton_Click(object sender, EventArgs e)
@@ -28,7 +26,6 @@ namespace recipe_manager.Controls
             recipes = await ApiRecipeProcessor.LoadRecipes(searchTerm);
 
             apiRecipesDataGridView.DataSource = recipes;
-            apiRecipesDataGridView.AutoResizeColumns();
         }
 
         private void apiViewButton_Click(object sender, EventArgs e)
@@ -61,6 +58,12 @@ namespace recipe_manager.Controls
                 nameLabel.Text = recipeModel.Title;
                 descriptionTextBox.Text = recipeModel.Summary;
                 typeLabel.Text = $"Type: {recipeModel.DishType}";
+
+                var count = 1;
+                recipeModel.ExtendedIngredients.ForEach(ing => ingredientsTextBox.Text += ing.Original + Environment.NewLine);
+                recipeModel.AnalyzedInstructions.ForEach(ins =>
+                    ins.Steps.ForEach(step =>
+                        instructionsTextBox.Text += $"Step {count++}: {step.Step} {Environment.NewLine}"));
             }
         }
 

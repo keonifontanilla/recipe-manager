@@ -44,5 +44,8 @@ namespace recipe_manager.API
                 return dishType;
             } 
         }
+
+        public List<ApiIngredientsModel> ExtendedIngredients { get; set; }
+        public List<ApiInstructionsModel> AnalyzedInstructions { get; set; }
     }
 }

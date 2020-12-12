@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace recipe_manager.API
 {
-    public class ApiRecipeResultModel
+    public class ApiStepsModel
     {
-        public List<ApiRecipeModel> Results { get; set; }
+        public string Step { get; set; }
     }
 }

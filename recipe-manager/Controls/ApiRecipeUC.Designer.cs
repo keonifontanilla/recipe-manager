@@ -48,6 +48,7 @@ namespace recipe_manager.Controls
             // 
             // apiRecipesDataGridView
             // 
+            this.apiRecipesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.apiRecipesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.apiRecipesDataGridView.Location = new System.Drawing.Point(28, 68);
             this.apiRecipesDataGridView.Name = "apiRecipesDataGridView";
