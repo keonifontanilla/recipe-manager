@@ -68,6 +68,7 @@ namespace recipe_manager
             categoriesButton.BackColor = defaultColor;
             addRecipeButton.BackColor = defaultColor;
             searchAPIButton.BackColor = defaultColor;
+            favoritesButton.BackColor = defaultColor;
 
             btnSender.BackColor = Color.LightGray;
         }
@@ -99,6 +100,7 @@ namespace recipe_manager
 
             allRecipesPanel.Controls.Add(recipesUC);
 
+            if (senderButton.Name == "favoritesButton") SetSideButtonColor(sender);
             homePanel.Hide();
             addRecipePanel.Hide();
             allRecipesPanel.Show();
