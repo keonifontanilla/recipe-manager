@@ -9,5 +9,6 @@ namespace recipe_manager.API
     public class ApiRecipeResultModel
     {
         public List<ApiRecipeModel> Results { get; set; }
+        public int TotalResults { get; set; }
     }
 }

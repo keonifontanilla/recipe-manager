@@ -22,10 +22,23 @@ namespace recipe_manager.Controls
 
         private async void apiSearchButton_Click(object sender, EventArgs e)
         {
-            var searchTerm = apiSearchTextBox.Text;
-            recipes = await ApiRecipeProcessor.LoadRecipes(searchTerm);
+            try
+            {
+                var searchTerm = apiSearchTextBox.Text;
+                var (apiRecipes, totalResults) = await ApiRecipeProcessor.LoadRecipes(searchTerm);
+                this.recipes = apiRecipes;
 
-            apiRecipesDataGridView.DataSource = recipes;
+                if (totalResults != 0)
+                {
+                    apiRecipesDataGridView.DataSource = this.recipes;
+                }
+
+                MessageBox.Show($"Max Number of recipes displayed is 10. Results found: {totalResults}");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void apiViewButton_Click(object sender, EventArgs e)
