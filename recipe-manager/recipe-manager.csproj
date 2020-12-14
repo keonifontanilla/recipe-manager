@@ -143,6 +143,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\breakfastImg.jpg" />
+    <Content Include="Images\dessertImg.jpg" />
+    <Content Include="Images\drinkImg.jpg" />
+    <Content Include="Images\mainImg.jpg" />
+    <Content Include="Images\mealImg.jpg" />
+    <Content Include="Images\sideImg.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -31,6 +31,7 @@ namespace recipe_manager
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecipeManagerForm));
             this.sideBarPanel = new System.Windows.Forms.Panel();
+            this.searchAPIButton = new System.Windows.Forms.Button();
             this.favoritesButton = new System.Windows.Forms.Button();
             this.addRecipeButton = new System.Windows.Forms.Button();
             this.categoriesSubPanel = new System.Windows.Forms.Panel();
@@ -64,7 +65,6 @@ namespace recipe_manager
             this.allRecipesGroupBox = new System.Windows.Forms.GroupBox();
             this.allRecipesButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.searchAPIButton = new System.Windows.Forms.Button();
             this.sideBarPanel.SuspendLayout();
             this.categoriesSubPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
@@ -92,6 +92,22 @@ namespace recipe_manager
             this.sideBarPanel.Name = "sideBarPanel";
             this.sideBarPanel.Size = new System.Drawing.Size(225, 649);
             this.sideBarPanel.TabIndex = 0;
+            // 
+            // searchAPIButton
+            // 
+            this.searchAPIButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchAPIButton.FlatAppearance.BorderSize = 0;
+            this.searchAPIButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchAPIButton.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchAPIButton.Location = new System.Drawing.Point(0, 552);
+            this.searchAPIButton.Name = "searchAPIButton";
+            this.searchAPIButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.searchAPIButton.Size = new System.Drawing.Size(225, 60);
+            this.searchAPIButton.TabIndex = 6;
+            this.searchAPIButton.Text = "Search API";
+            this.searchAPIButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.searchAPIButton.UseVisualStyleBackColor = true;
+            this.searchAPIButton.Click += new System.EventHandler(this.searchAPIButton_Click);
             // 
             // favoritesButton
             // 
@@ -326,6 +342,8 @@ namespace recipe_manager
             // 
             // drinksButton
             // 
+            this.drinksButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("drinksButton.BackgroundImage")));
+            this.drinksButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.drinksButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.drinksButton.Location = new System.Drawing.Point(3, 8);
             this.drinksButton.Name = "drinksButton";
@@ -358,6 +376,8 @@ namespace recipe_manager
             // 
             // dessertsButton
             // 
+            this.dessertsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dessertsButton.BackgroundImage")));
+            this.dessertsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.dessertsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dessertsButton.Location = new System.Drawing.Point(3, 8);
             this.dessertsButton.Name = "dessertsButton";
@@ -390,6 +410,8 @@ namespace recipe_manager
             // 
             // sideDishesButton
             // 
+            this.sideDishesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sideDishesButton.BackgroundImage")));
+            this.sideDishesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.sideDishesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.sideDishesButton.Location = new System.Drawing.Point(3, 8);
             this.sideDishesButton.Name = "sideDishesButton";
@@ -422,6 +444,8 @@ namespace recipe_manager
             // 
             // mainRecipesButton
             // 
+            this.mainRecipesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mainRecipesButton.BackgroundImage")));
+            this.mainRecipesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainRecipesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mainRecipesButton.Location = new System.Drawing.Point(3, 8);
             this.mainRecipesButton.Name = "mainRecipesButton";
@@ -490,6 +514,7 @@ namespace recipe_manager
             // 
             // allRecipesButton
             // 
+            this.allRecipesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("allRecipesButton.BackgroundImage")));
             this.allRecipesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.allRecipesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.allRecipesButton.Location = new System.Drawing.Point(3, 8);
@@ -509,22 +534,6 @@ namespace recipe_manager
             this.label1.TabIndex = 2;
             this.label1.Text = "All Recipes";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // searchAPIButton
-            // 
-            this.searchAPIButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchAPIButton.FlatAppearance.BorderSize = 0;
-            this.searchAPIButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchAPIButton.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchAPIButton.Location = new System.Drawing.Point(0, 552);
-            this.searchAPIButton.Name = "searchAPIButton";
-            this.searchAPIButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.searchAPIButton.Size = new System.Drawing.Size(225, 60);
-            this.searchAPIButton.TabIndex = 6;
-            this.searchAPIButton.Text = "Search API";
-            this.searchAPIButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.searchAPIButton.UseVisualStyleBackColor = true;
-            this.searchAPIButton.Click += new System.EventHandler(this.searchAPIButton_Click);
             // 
             // RecipeManagerForm
             // 
