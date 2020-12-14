@@ -28,6 +28,7 @@ namespace recipe_manager.Controls
                 var (apiRecipes, totalResults) = await ApiRecipeProcessor.LoadRecipes(searchTerm);
                 this.recipes = apiRecipes;
 
+                apiRecipesDataGridView.DataSource = null;
                 if (totalResults != 0)
                 {
                     apiRecipesDataGridView.DataSource = this.recipes;
