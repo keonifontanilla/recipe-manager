@@ -63,12 +63,21 @@ namespace recipe_manager
             var defaultColor = Color.FromArgb(245, 243, 244);
             var btnSender = (Button)sender;
 
-            homeButton.BackColor = defaultColor;
-            allRecipesButton.BackColor = defaultColor;
-            categoriesButton.BackColor = defaultColor;
-            addRecipeButton.BackColor = defaultColor;
-            searchAPIButton.BackColor = defaultColor;
-            favoritesButton.BackColor = defaultColor;
+            foreach(var btn in sideBarPanel.Controls.OfType<Button>())
+            {
+                btn.BackColor = defaultColor;
+            }
+
+            foreach(var btn in categoriesSubPanel.Controls.OfType<Button>())
+            {
+                btn.BackColor = defaultColor;
+                
+                if (categoriesSubPanel.Visible && btn.Tag == btnSender.Tag)
+                {
+                    categoriesButton.BackColor = Color.LightGray;
+                    btn.BackColor = Color.LightGray;
+                }
+            }
 
             btnSender.BackColor = Color.LightGray;
         }
@@ -94,13 +103,14 @@ namespace recipe_manager
             var senderButton = (Button)sender;
             var recipeTypeLabel = senderButton.Parent.Controls.OfType<Label>().FirstOrDefault();
             var recipeType = senderButton.Parent is Panel ? senderButton.Text : recipeTypeLabel.Text;
-
             var recipesUC = senderButton.Name != "favoritesButton" ? 
                 new RecipesUC(db, GetRecipeType(recipeType)) : new RecipesUC(db, RecipeType.All, saveFavorite: true);
 
             allRecipesPanel.Controls.Add(recipesUC);
+            
+            categoriesSubPanel.Show();
+            SetSideButtonColor(sender);
 
-            if (senderButton.Name == "favoritesButton") SetSideButtonColor(sender);
             homePanel.Hide();
             addRecipePanel.Hide();
             allRecipesPanel.Show();

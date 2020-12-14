@@ -168,6 +168,7 @@ namespace recipe_manager
             this.drinksSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.drinksSideButton.Size = new System.Drawing.Size(225, 23);
             this.drinksSideButton.TabIndex = 10;
+            this.drinksSideButton.Tag = "Drinks";
             this.drinksSideButton.Text = "Drinks";
             this.drinksSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.drinksSideButton.UseVisualStyleBackColor = true;
@@ -184,6 +185,7 @@ namespace recipe_manager
             this.dessertsSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.dessertsSideButton.Size = new System.Drawing.Size(225, 23);
             this.dessertsSideButton.TabIndex = 9;
+            this.dessertsSideButton.Tag = "Desserts";
             this.dessertsSideButton.Text = "Desserts";
             this.dessertsSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dessertsSideButton.UseVisualStyleBackColor = true;
@@ -200,6 +202,7 @@ namespace recipe_manager
             this.sideDishesSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.sideDishesSideButton.Size = new System.Drawing.Size(225, 23);
             this.sideDishesSideButton.TabIndex = 8;
+            this.sideDishesSideButton.Tag = "Side Dishes";
             this.sideDishesSideButton.Text = "Side Dishes";
             this.sideDishesSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sideDishesSideButton.UseVisualStyleBackColor = true;
@@ -216,6 +219,7 @@ namespace recipe_manager
             this.mainSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.mainSideButton.Size = new System.Drawing.Size(225, 23);
             this.mainSideButton.TabIndex = 7;
+            this.mainSideButton.Tag = "Main Course";
             this.mainSideButton.Text = "Main Course";
             this.mainSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mainSideButton.UseVisualStyleBackColor = true;
@@ -232,6 +236,7 @@ namespace recipe_manager
             this.breakfastSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.breakfastSideButton.Size = new System.Drawing.Size(225, 23);
             this.breakfastSideButton.TabIndex = 6;
+            this.breakfastSideButton.Tag = "Breakfast";
             this.breakfastSideButton.Text = "Breakfast";
             this.breakfastSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.breakfastSideButton.UseVisualStyleBackColor = true;
@@ -248,6 +253,7 @@ namespace recipe_manager
             this.allRecipesSideButton.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.allRecipesSideButton.Size = new System.Drawing.Size(225, 23);
             this.allRecipesSideButton.TabIndex = 5;
+            this.allRecipesSideButton.Tag = "All Recipes";
             this.allRecipesSideButton.Text = "All Recipes";
             this.allRecipesSideButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.allRecipesSideButton.UseVisualStyleBackColor = true;
@@ -349,6 +355,7 @@ namespace recipe_manager
             this.drinksButton.Name = "drinksButton";
             this.drinksButton.Size = new System.Drawing.Size(212, 144);
             this.drinksButton.TabIndex = 0;
+            this.drinksButton.Tag = "Drinks";
             this.drinksButton.UseVisualStyleBackColor = true;
             this.drinksButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
@@ -383,6 +390,7 @@ namespace recipe_manager
             this.dessertsButton.Name = "dessertsButton";
             this.dessertsButton.Size = new System.Drawing.Size(212, 144);
             this.dessertsButton.TabIndex = 0;
+            this.dessertsButton.Tag = "Desserts";
             this.dessertsButton.UseVisualStyleBackColor = true;
             this.dessertsButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
@@ -417,6 +425,7 @@ namespace recipe_manager
             this.sideDishesButton.Name = "sideDishesButton";
             this.sideDishesButton.Size = new System.Drawing.Size(212, 144);
             this.sideDishesButton.TabIndex = 0;
+            this.sideDishesButton.Tag = "Side Dishes";
             this.sideDishesButton.UseVisualStyleBackColor = true;
             this.sideDishesButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
@@ -451,6 +460,7 @@ namespace recipe_manager
             this.mainRecipesButton.Name = "mainRecipesButton";
             this.mainRecipesButton.Size = new System.Drawing.Size(212, 144);
             this.mainRecipesButton.TabIndex = 0;
+            this.mainRecipesButton.Tag = "Main Course";
             this.mainRecipesButton.UseVisualStyleBackColor = true;
             this.mainRecipesButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
@@ -486,6 +496,7 @@ namespace recipe_manager
             this.breakfastRecipesButton.Name = "breakfastRecipesButton";
             this.breakfastRecipesButton.Size = new System.Drawing.Size(212, 144);
             this.breakfastRecipesButton.TabIndex = 0;
+            this.breakfastRecipesButton.Tag = "Breakfast";
             this.breakfastRecipesButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.breakfastRecipesButton.UseVisualStyleBackColor = true;
             this.breakfastRecipesButton.Click += new System.EventHandler(this.recipesButton_Click);
@@ -521,6 +532,7 @@ namespace recipe_manager
             this.allRecipesButton.Name = "allRecipesButton";
             this.allRecipesButton.Size = new System.Drawing.Size(212, 144);
             this.allRecipesButton.TabIndex = 0;
+            this.allRecipesButton.Tag = "All Recipes";
             this.allRecipesButton.UseVisualStyleBackColor = true;
             this.allRecipesButton.Click += new System.EventHandler(this.recipesButton_Click);
             // 
