@@ -69,7 +69,7 @@ namespace recipe_manager.Controls
                 var recipeModel = recipes[rowIndex];
 
                 nameLabel.Text = recipeModel.Title;
-                descriptionTextBox.Text = recipeModel.Summary;
+                descriptionTextBox.Text = $"{recipeModel.Summary}{Environment.NewLine}Visit recipe site here: {recipeModel.SourceUrl}";
                 typeLabel.Text = $"Type: {recipeModel.DishType}";
 
                 var count = 1;
