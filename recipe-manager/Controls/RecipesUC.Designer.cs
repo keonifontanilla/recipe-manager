@@ -45,6 +45,7 @@ namespace recipe_manager.Controls
             this.updateButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.favoriteButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recipesDataGridView)).BeginInit();
             this.viewPanel.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +81,7 @@ namespace recipe_manager.Controls
             // 
             // viewPanel
             // 
+            this.viewPanel.Controls.Add(this.saveButton);
             this.viewPanel.Controls.Add(this.instructionsTextBox);
             this.viewPanel.Controls.Add(this.instructionsLabel);
             this.viewPanel.Controls.Add(this.ingredientsTextBox);
@@ -102,7 +104,7 @@ namespace recipe_manager.Controls
             this.instructionsTextBox.Name = "instructionsTextBox";
             this.instructionsTextBox.ReadOnly = true;
             this.instructionsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.instructionsTextBox.Size = new System.Drawing.Size(363, 465);
+            this.instructionsTextBox.Size = new System.Drawing.Size(363, 431);
             this.instructionsTextBox.TabIndex = 14;
             // 
             // instructionsLabel
@@ -218,6 +220,16 @@ namespace recipe_manager.Controls
             this.favoriteButton.UseVisualStyleBackColor = true;
             this.favoriteButton.Click += new System.EventHandler(this.favoriteButton_Click);
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(744, 493);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 9;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // RecipesUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,5 +270,6 @@ namespace recipe_manager.Controls
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button favoriteButton;
+        private System.Windows.Forms.Button saveButton;
     }
 }

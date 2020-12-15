@@ -89,6 +89,7 @@
     </Compile>
     <Compile Include="DataAccess.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="FileGenerator.cs" />
     <Compile Include="Models\IngredientsModel.cs" />
     <Compile Include="Models\InstructionsModel.cs" />
     <Compile Include="Models\RecipesModel.cs" />

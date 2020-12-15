@@ -159,5 +159,18 @@ namespace recipe_manager.Controls
         {
             if (searchTextBox.Text == "") recipesDataGridView.DataSource = SetGridDatasource();
         }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog();
+            var fileGenerator = new FileGenerator(saveFileDialog);
+
+            saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileGenerator.GenerateFile(recipesModel, ingredients, instructions);
+            }
+        }
     }
 }
