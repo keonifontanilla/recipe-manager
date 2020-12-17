@@ -10,10 +10,17 @@ using System.Threading.Tasks;
 
 namespace recipe_manager
 {
+    /// <summary>
+    /// Allows access to database for creating, reading, updating, and deleting records.
+    /// </summary>
     public class DataAccess
     {
         private string connStr = ConfigurationManager.ConnectionStrings["RecipesDB"].ConnectionString;
-
+        
+        /// <summary>
+        /// Selects all recipes from database.
+        /// </summary>
+        /// <returns>A list of RecipesModel.</returns>
         public List<RecipesModel> ListRecipes()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
@@ -22,6 +29,10 @@ namespace recipe_manager
             }
         }
 
+        /// <summary>
+        /// Selects recipes from favorites table. 
+        /// </summary>
+        /// <returns>A list of RecipesModel.</returns>
         public List<RecipesModel> ListFavoriteRecipes()
         {
             var sql = "SELECT * FROM Recipes r INNER JOIN Favorites f ON r.RecipeId = f.RecipeId;";
@@ -32,6 +43,12 @@ namespace recipe_manager
             }
         }
 
+        /// <summary>
+        /// Search for a recipe buy name or filters recipes by recipe type.
+        /// </summary>
+        /// <param name="recipeName">The name of the recipe.</param>
+        /// <param name="rt">The recipe type.</param>
+        /// <returns>A list of RecipesModel.</returns>
         public List<RecipesModel> SearchRecipes(string recipeName, RecipeType rt)
         {
             var recipeType = rt.ToString();
@@ -51,6 +68,12 @@ namespace recipe_manager
             }
         }
 
+        /// <summary>
+        /// Creates new recipe and inserts into database.
+        /// </summary>
+        /// <param name="rm">A list of RecipesModel.</param>
+        /// <param name="instructions">A list of InstructionsModel.</param>
+        /// <returns>A recipe id.</returns>
         public int CreateRecipeInfo(RecipesModel rm, List<InstructionsModel> instructions)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
@@ -73,6 +96,11 @@ namespace recipe_manager
             }
         }
 
+        /// <summary>
+        /// Inserts the instructions and ingredients to the recipe.
+        /// </summary>
+        /// <param name="ingredients">A list of IngredientsModel.</param>
+        /// <param name="recipeID">The id of the recipe.</param>
         public void InsertFullRecipe(List<IngredientsModel> ingredients, int recipeID)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
@@ -94,6 +122,10 @@ namespace recipe_manager
             }
         }
 
+        /// <summary>
+        /// Inserts a recipe into favorites table.
+        /// </summary>
+        /// <param name="recipeId">The id of the recipe.</param>
         public void InsertFavoriteRecipe(int recipeId)
         {
             var sql = "INSERT INTO Favorites (RecipeId) VALUES (@recipeId);";
@@ -104,6 +136,13 @@ namespace recipe_manager
             }
         }
 
+        /// <summary>
+        /// Selects a recipe to view.
+        /// </summary>
+        /// <param name="recipeId">The id of the recipe.</param>
+        /// <param name="ingredients">A list of IngredientsModel.</param>
+        /// <param name="instructions">A list of InstructionsModel.</param>
+        /// <returns>A RecipesModel.</returns>
         public RecipesModel ViewRecipe(int recipeId, out List<IngredientsModel> ingredients, out List<InstructionsModel> instructions)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
@@ -118,6 +157,12 @@ namespace recipe_manager
             }
         }
 
+        /// <summary>
+        /// Updates a recipe with its ingregients and instructions.
+        /// </summary>
+        /// <param name="rm">A RecipesModel.</param>
+        /// <param name="ingredients">A list of IngredientsModel.</param>
+        /// <param name="instructions">A list of InstructionsModel.</param>
         public void UpdateRecipe(RecipesModel rm, List<IngredientsModel> ingredients, List<InstructionsModel> instructions)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
@@ -135,6 +180,10 @@ namespace recipe_manager
             }
         }
 
+        /// <summary>
+        /// Deletes the full recipe along with the ingredients and instructions.
+        /// </summary>
+        /// <param name="recipeId">The id of the recipe.</param>
         public void DeleteFullRecipe(int recipeId)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connStr))
@@ -143,6 +192,10 @@ namespace recipe_manager
             }
         }
 
+        /// <summary>
+        /// Deletes the a recipes only from the favorites table.
+        /// </summary>
+        /// <param name="recipeId">The id of the recipe.</param>
         public void DeleteFavoriteRecipe(int recipeId)
         {
             var sql = "DELETE FROM Favorites WHERE RecipeId = @recipeId;";
