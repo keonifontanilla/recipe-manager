@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace recipe_manager
 {
+    /// <summary>
+    /// Enum for recipe type.
+    /// </summary>
     public enum RecipeType
     {
         All,
