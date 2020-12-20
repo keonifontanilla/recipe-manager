@@ -8,8 +8,16 @@ using System.Threading.Tasks;
 
 namespace recipe_manager.API
 {
+    /// <summary>
+    /// Processes the API response.
+    /// </summary>
     public class ApiRecipeProcessor
     {
+        /// <summary>
+        /// Load recipes from the API response.
+        /// </summary>
+        /// <param name="searchTerm">The recipe to search for.</param>
+        /// <returns>A Task of ApiRecipeModel as a list.</returns>
         public static async Task<(List<ApiRecipeModel> apiRecipes, int totalResults)> LoadRecipes(string searchTerm)
         {
             var apiKey = ConfigurationManager.AppSettings["APIKey"];
