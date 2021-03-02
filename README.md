@@ -24,7 +24,19 @@ Add new recipes
 
 ![](./Images/api.PNG)
 <br>
-Search and view recipes from Spoonacular's api
+Simple Search and view recipes from Spoonacular's api
+<br>
+###### Instructions
+* Register on Spoonacular's website for an api key. 
+* Create file name specialappsettings.config
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<appSettings>
+  <add key="APIKey" value="YOUR KEY HERE" />
+</appSettings>
+```
+* Add your api key to value
+* Ignore file to prevent exposing key
 
 #### Other Features
 * Update a recipe
