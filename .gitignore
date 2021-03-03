@@ -258,6 +258,8 @@ ServiceFabricBackup/
 *.mdf
 *.ldf
 *.ndf
+# Don't ignore files in Database folder
+!Database/*
 
 # Business Intelligence projects
 *.rdl.data

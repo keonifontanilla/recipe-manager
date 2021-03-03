@@ -3,7 +3,7 @@
 
 ## Description
 Easy to use recipe manager to store food recipes that saves recipes to a database. This program uses the popular 
-Dapper micro-ORM for SQL. Also it uses a small web api that can query Spoontacular's recipe database.
+Dapper micro-ORM for SQL. Also it uses a small web api that can query Spoonacular's recipe database.
 
 ## Features
 ![](./Images/allRecipes.PNG)
